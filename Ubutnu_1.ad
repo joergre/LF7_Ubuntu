@@ -17,31 +17,32 @@
       ^^^^^^^^^^^^
       Nurnoch bei stark belasteten Maschienen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
       / -> Alles was nicht woanders gespeichert wird
-      /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
+      /boot -> War frÃ¼her ein Problem. Jetzt wird es nicht mehr ausgelagert.
       /usr -> Starke "lese"-Belastung
       /home -> Starke I/O-Bleastung
       /var -> Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
-      /tmp -> Starke I/O-Belastung. Aus Sicherheitsgründen gerne auf eine extr Partition
-      Swap -> Starke I/O-Belastung wenn nicht genügend RAM.
+      /tmp -> Starke I/O-Belastung. Aus SicherheitsgrÃ¼nden gerne auf eine extr Partition
+      Swap -> Starke I/O-Belastung wenn nicht genÃ¼gend RAM.
       
 Raid und LVM
 ^^^^^^^^^^^^
+
 Aufgabe
 -------
 Lese bitte die zwei Artikel http://de.wikipedia.org/wiki/RAID[RAID] und http://de.wikipedia.org/wiki/Logical_Volume_Manager[LVM]
 Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe die Deine Antwort in Moodle. Zeitvorgabe: 15 Minuten
 
-Raid dient der Sicherheit und/oder Performance. LVM erhöht die Flexibilität. LVM alleine in einer Serverumgebung einzusetzen ist keine gute Idee. Besser ist es, beide zu kombinieren. Dies funktioniert z.B. so, dass die einzzelnen Platten eines LVM in Wirklichkeit ein Raid-Verbund sind. Es kann z.B. die 3TB-Platte aus dem LVM in Wirklichkeit das Raid 5 aus obigem Beispiel sein. Bei bedarf lässt sich das LVM "on the fly", d.h. ohne Neustart vergrössern.
+Raid dient der Sicherheit und/oder Performance. LVM erhÃ¶ht die FlexibilitÃ¤t. LVM alleine in einer Serverumgebung einzusetzen ist keine gute Idee. Besser ist es, beide zu kombinieren. Dies funktioniert z.B. so, dass die einzzelnen Platten eines LVM in Wirklichkeit ein Raid-Verbund sind. Es kann z.B. die 3TB-Platte aus dem LVM in Wirklichkeit das Raid 5 aus obigem Beispiel sein. Bei bedarf lÃ¤sst sich das LVM "on the fly", d.h. ohne Neustart vergrÃ¶ssern.
       
  image::images/raid_v2.png
 
 Reale Partitionen 
 ^^^^^^^^^^^^^^^^^
-Ich machen die Installation von Ubuntu kompliziert um die Möglichkeiten einer morderner Festplattenverwaltung aufzuzeigen. Selbstverständlich kann das ganze System auch direkt auf einen Festspeicher oder einen Raidverbund aus zwei Festplatten installiert werden, indem die Auswahlmöglichkeiten einfach ignoriert werden. In einer Virtuellen Maschine macht die Partitionierung und ein Software Raid sowieso keinen Sinn.
+Ich machen die Installation von Ubuntu kompliziert um die MÃ¶glichkeiten einer morderner Festplattenverwaltung aufzuzeigen. SelbstverstÃ¤ndlich kann das ganze System auch direkt auf einen Festspeicher oder einen Raidverbund aus zwei Festplatten installiert werden, indem die AuswahlmÃ¶glichkeiten einfach ignoriert werden. In einer Virtuellen Maschine macht die Partitionierung und ein Software Raid sowieso keinen Sinn.
 
 Aufgabe
 -------
-Berechne den Speicherplatz, der in /dev/storage brutto zur Verfügung steht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
+Berechne den Speicherplatz, der in /dev/storage brutto zur VerfÃ¼gung steht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
 
  
 

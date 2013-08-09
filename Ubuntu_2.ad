@@ -1,5 +1,33 @@
  Unterrichtseinheit 2
  --------------------
- Installation
- ^^^^^^^^^^^^
-  
+ 
+    Installationsmethoden
+ ^^^^^^^^^^^^^^^^^^^^^
+ 
+ * CD
+ * USB
+ * Netzwerk (PXE)
+ * Kickstart (unbeaufsichtigte Installation)
+ * Virtuelle Medien wie ISO-Image
+ 
+ Veraltete Methoden wie die Installation von Diskete oder unübliche Methoden wie die Installation von einem bereits installiertem Linux-System oder innerhalb eines Windowssystems lassen wir aussen vor.
+ 
+ Die Installation mit Hilfe von CD wird immer weniger, da die Images von Ubuntu größer werden und nicht mehr auf eine CD passen. Auch werden immer mehr Laptops und Computer ohne optische Laufwerke ausgeliefert. Dies führt dazu, dass die Installation per USB immer wichtiger wird.
+ 
+USB
+^^^
+Es gibt zwei Möglichkeiten, einen USB-Stick für das booten von Ubuntu vorzubereiten:
+* Disk Creater
+* Unetbootin
+ 
+ Für das Programm Disk creator wird ein lauffähiges Ubuntu gebraucht, da dieses Programm bestandteil der Distrubution ist.
+ 
+ Für Unetbootin wird ein lauffähiges Windows gebraucht.
+ 
+ Anleitung für beide Verfahren https://help.ubuntu.com/community/Installation/FromUSBStick[hier]
+     
+ Kickstart
+ ^^^^^^^^^
+ http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu[Siehe hier]
+ 
+   
