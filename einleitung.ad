@@ -1,0 +1,259 @@
+Einführung in C
+===============
+Jörg Reuter <joerg@reuter.sc>
+:docbooktype: book
+:Author Initials: Jörg Reuter
+:Author: Jörg Reuter
+:date: 2013-08-02
+:toc:
+:icons:
+:numbered: 
+:website: https://github.com/joergre/c
+:revision: 0.1
+
+image:images/joerg_reuter[height=64]
+Jörg Reuter ist seit 2000 Studienrat an der Ferdinand-Braun-Schule in Fulda und unterrichtet dort Anwendungsentwicklung (C und Java) und Netzwerktechnik (Linux), Elektrotechnik (Berufsschule), Politik und katholische Religion (Fachoberschule). 
+Geboren 1970 in Gießen, 1990/1991 Zivieldienst (24 Monate) am Universitätsklinikum Gießen in der Hals- Nasen- und Ohrenklinik. Während des Zivieldienstes Fernstudium an der Fernuniversität Hagen (Elektrotechnik). 1991-1997 Studium der Elektrotechnik an der TU Darmstadt. 1997/1998 für einen privaten Bildungsträger in Giessen tätig. 1998 Referndar an der Ferdinand-Braun-Schule.
+
+ 
+
+.Dieses Dokument
+**********************************************************************
+Dieses Dokument wurdie in AsciiDoc erstellt und seine aktuelle Fassung ist unter https://github.com/joergre/c[Github] verfügbar.
+**********************************************************************
+
+
+Einleitung
+----------
+Dieses Dokument ist entstanden im Rahmen des Unterrichts in LF6 an der Ferdinand-Braun-Schule Fulda. In LF6 wird in der Unterstufe C bei den Fachinformatikern Systemintegration unterrichtet. Rechtlicher Rahmen: http://www.kmk.org/fileadmin/pdf/Bildung/BeruflicheBildung/rlp/Fachinformatiker97-04-25.pdf[Rahmenlehrplan]
+
+Warum noch ein Buch?
+~~~~~~~~~~~~~~~~~~~~
+Es gibt unzählige Bücher am Markt, die versuchen die Programmiersprache C dem Leser näher zu bringen. An der Ferdinand-Braun-Schule setzen wir z.B. das Buch http://www.amazon.de/dp/3499600749[C - Programmieren von Anfang an] von Helmut Erlenkötter ein.
+ 
+Das Problem bei den Büchern ist, dass sie versuchen Ihrem Titel gerecht zu werden. Die Bücher beschränken sich zu sehr auf die Programmiersprache und sind mir insgesamt zu langatmig. 
+Ein Fachinformatiger Systemintegration ist oft deshalb kein Fachinformatiker Anwendungsentwicklung geworden, weil er mit programmieren nicht ganz soviel anfangen kann. 
+
+Um hier eine Motivation zu erreichen, ist es sinnvoll mit der Programmiersprache als "Vehikel" zusammenhänge in der Systemintegration herzustellen wie z.B. Verschlüsselungstechniken zu erklären oder Angriffsmöglichkeiten auf Servern zu verdeutlichen. Dieses Publikum ist zu klein als das es sich lohnt hierfür ein extra Buch zu verlegen.
+
+Das Buch möchte als eine Brücke schlagen zwischen Anwendungsentwicklung und Systemintegration und durch die Brille der Anwendungsentwicklung aktuelle Probleme der Systemintegration erklären ohne dass dabei die Anwendungsentwicklung leidet. 
+
+Git
+~~~
+Nichts ist so sicher wie die Veränderung in der IT-Welt. Dem muss der Unterricht und auch die Dokumentation Rechnung tragen. Einerseits sollte versucht werden, Wissen zu vermitteln das über das aktuelle hinaus geht. Es sollen allgemeine Zusammenhänge erklärbar werden, die längere Zeit aktuell sind. Auf der anderen Seite muss auch die Dokumentation eine Form aufweisen, die unabhängig von proprietären Formaten ist und einfach zu aktualisieren. Hier spielen zwei Faktoren eine Rolle: Eine Versionsverwaltung, die es einfach ermöglicht Fehler in einem Dokument zu beheben und es anderen ermöglicht an dem Dokument mitzuarbeiten. 
+
+Es gibt im Internet sehr viele Einführungen in git, daher nur eine extrem kurze Zusammenfassung. 
+
+Eine Verionsverwaltung ist für ein modernes erstellen von Schriftstücken unerlässlich, ebenso wie beim programmieren. Eine Versionsverwaltung ist auch für Systemintegratoren sinnvoll, z.B, kann bei einem Linux-Server regelmäßig das /etc-Verzeichnis "ausgesckeckt" werden und so Änderungen im Rahemn des Changemanagments nachvollzogen werden. Auch Angriffe sind so eventuell früher erkennbar, wenn Änderungen ohne Kommentar versioniert werden.
+
+
+Warum Github?
+^^^^^^^^^^^^^
+Es ist möglich seinen eigenen Git-Server zu installieren und zu warten. Es gibt sehr viele Server mit schicker Oberflächen in allen möglichen Programmiersprachen: http://code.google.com/p/gitblit/[Java], http://www.gitphp.org/[PHP] oder http://getgitorious.com/[Ruby] oder gar https://git.wiki.kernel.org/index.php/Gitweb[Perl], alles kein Problem.
+
+Ein eigener Server ist mit Kosten verbunden und bedarf der Wartung, dies alles kann man sich sparen durch die Nutzung kostenloser oder günstiger Angebote wie Github.
+Daher habe ich mich für einen kommerziellen Dienst entschieden, der kostenlos öffentliche Repositories ermöglicht und seine Software als Opensource kostenlos der Gemeinschaft zur Verfügung stellt und aktiv Linux unterstützt.
+
+Arbeiten mit git
+^^^^^^^^^^^^^^^^
+Git gibt es für http://code.google.com/p/git-osx-installer/downloads/list?can=3[OSX], für http://code.google.com/p/msysgit/downloads/list?can=3[Windows] und für http://git-scm.com/book/en/Getting-Started-Installing-Git[Linux]. Diese Anwendung muss installiert werden, damit mit git gearbeitet werden kann.
+
+Zum auschecken muss der Befehl
+
+[source, bash]
+$ git clone https://github.com/joergre/c.git 
+
+eingegeben werden. Auschecken bedeutet den aktuellen Quellcode in ein Verzeichnis zu speichern. 
+Das bedeutete, alle Dateien des Projekts (in diesem Fall des Buchs) werden mit den eventuell aktuellen auf Deinem Rechner verglichen und bei Veränderungen überschrieben. 
+Danach ist Dein Verzeichnis identisch mit dem im Repository. Ein Repository (kurz "Repo") ist das Projekt bzw. derOrdner in dem alle Dateien eines Projekts abgelegt sind.
+
+Fehler gefunden?
+++++++++++++++++
+Du hast einen Fehler gefunden? Eine Ergänzung oder Anmerkung? Super!
+
+Du kannst die Korrektur direkt vornehmen. Dazu veränderst Du die Datei lokal oder fügst mit 
+
+[source, bash]
+$ git add <Dateiname>
+
+eine neue Datei hinzu. Natürlich funktioniert auch der Befehl
+
+[source, bash]
+$ git add *
+
+um mehrere Dateien hinzuzufügen.
+
+nach musst Du die Änderung bestätigen mit einem
+
+[source, bash]
+$ git commit -m "Commit-Nachricht"
+
+Dann werden die hinzugefügten Dateien oder die veränderten Dateien angezeigt. Die Commit-Nachricht sollte kurz beschreiben, welche Änderungen warum vorgenommen wurden.
+
+Die Änderungen sind momentan alle noch lokal. Um sie jetzt auf den Server zu laden, muss ein
+
+[source, bash]
+$ git push origin master
+
+durchgeführt werden. Dafür musst Du Dich aber bei github anmelden.
+
+Branch
+++++++
+Bei grösseren Veränderungen wird ein Branch angelegt. Wichtig dabei ist, dass der Master-Zweig immer vollständig funktionsfähig bleibt.
+
+image::images/git.png[]
+Anlegen eines Branch mit dem Namen "Unterrichtseinheit_X":
+
+[source, bash]
+$ git checkout -b Unterrichtseinheit_X
+
+Um zum Master-Branch zu wechseln:
+
+[source, bash]
+$ git checkout master
+
+Der Branch "Unterrichtseinheit_X" wird gelöscht mit
+
+[source, bash]
+$ git branch -d Unterrichtseinheit_X
+
+Die Befehle waren jetzt alle lokal auf Denem Rechner. Um den Branch der Welt zur Verfügung zu stellen, musst Du diesen auf den Server laden:
+
+[source, bash]
+$ git push origin Unterrichtseinheit_X 
+
+Update und merge
+++++++++++++++++
+Um Dein lokales Repository zu aktualisieren, verwende 
+
+[source, bash]
+$ git pull
+
+Mit einem
+
+[source, bash]
+$ git merge <branch>
+
+versucht git, den Branch und den Masterzweig wieder zusammen zu führen. Meistens gibt es hierbei Konflikte und der Quellcode muss manuell editiert werden.
+Die Unterschiede werden Dir mit 
+
+[source, bash]
+$ git diff <quell_branch> <ziel_branch>
+
+angezeigt.
+
+Wenn alle Konflikte gelöst wurden, fügst Du die Dateien  mit dem Befehl
+
+[source, bash]
+$ git add <Dateiname>
+
+hinzu.
+
+Tagging
++++++++
+Der Vollständigkeit wegen noch das Tagging, auch wenn Du es nicht unbedingt benötigen wirst. Beim Tagging kann man bestimmten Entwicklungsständen eine Versionsnummer zuweisen wie z.B. dieser Punkt ist Version 1.0.0.
+Jedem pull wird ein Hashwert zugewiesen. Diese kannst Du Dir mit
+
+[source, bash]
+$ git log
+
+anzeigen lassen.
+
+Beispiel:
+
+[source, bash]
+commit aad57338f0a5e5e2362ee54ea6a24d0e63f0be48
+Author: Administrator <joerg@reuter.sc>
+Date:   Fri Aug 2 12:13:38 2013 +0200
+    Bilder
+
+Die ersten 10 Zeichen sind wichtig. Wir wollen dem letzten Commit die Versionsnummer 0.0.1 zuweisen. 
+
+[source, bash]
+$ git tag 0.0.1 aad57338f0
+
+In die Vergangenheit reisen
++++++++++++++++++++++++++++
+Mit
+[source, bash]
+$ git checkout -- <filename>
+
+kommst wieder auf den letzten Stand im HEAD.
+
+Wenn Du alle Änderungen verwerfen möchtest, dann brauchst Du zwei Befehle:
+
+[source, bash]
+$ git fetch origin
+$ git reset --hard origin/master
+
+AsciiDoc
+~~~~~~~~
+Warum http://asciidoc.org/[AsciiDOC]? Seit meinem Studium verwende ich Latex und wurde durch die Umwälzung in der Informationsverabeitung vom Papier zum Bildschirm zunehmend vor das Problem gestellt, eine Onlineausgabe und ein Dokument für den Druck vorzuhalten. 
+Da ging es mir ähnlich wie dem Verlag Open Source Press, der in einem Artikel http://www.opensourcepress.de/de/blog/2013/05/bye_bye_latex.php["Bye-bye LaTeX"] das gleiche Problem schilderte und mich auf AsciiDoc aufmerksam machte. 
+Ein einfaches Textformat, wie LaTex gut zu versionieren, Opensource und für alle gängigen Ausgabeformate zu verwenden: HTML4, HTML5, LaTex, Docbook, XML, PDF, Wordpress, Manpages, Postscript etc. Der Text muss nicht mehr angefasst werden, durch einen Befehlsaufruf ist das Dokument in dem jeweiligen Ausgabeformat umgewandelt. Die Ausgabe kann durch .css/xslt-Files zentral angepasst werden.
+
+Der Vorteil für mich: Ich stelle nur noch die AsciiDoc-Datei und ev. noch umgewandelt nach PDF zur Verfügung. Den Rest müsst Ihr dann selber machen, je nachdem wie es Euch gefällt.
+
+Installation unter Ubuntu
+^^^^^^^^^^^^^^^^^^^^^^^^^
+[source, bash]
+$sudo apt-get install asciidoc
+
+Das war es schon.
+Umwandeln nach PDF:
+
+[source, bash]
+a2x -v -fpdf -dbook c.ad 
+
+Das war es schon.
+
+Installation unter Windows
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+http://www.methods.co.nz/asciidoc/INSTALL.html[http://www.methods.co.nz/asciidoc/INSTALL.html]
+Kann ich ansonsten nicht viel zu sagen, da ich kein Windows unterstütze.
+
+Installation unter OSX
+^^^^^^^^^^^^^^^^^^^^^^
+http://grepalex.com/2013/02/17/installing-asciidoc-on-osx/[http://grepalex.com/2013/02/17/installing-asciidoc-on-osx/]
+Wie bei Windows: Nie getestet. Feedback willkommen.
+
+Kommunikation
+~~~~~~~~~~~~~
+facebook
+^^^^^^^^
+Ich habe zwei Facebook-Accounts. Auf dem ersten, (https://www.facebook.com/joerg.a.reuter[privaten Account) werden keine Anfragen von Schülern bestätigt. Auf dem https://www.facebook.com/profile.php?id=100004032505531[zweiten Account] werden alle Anfragen bestätigt. Es werden keine Informationen nur über facebook geteilt die für den Unterricht relevant sind. 
+
+Es gibt eine Seite https://www.facebook.com/InformationstechnikFulda[Fachinformatiker Forum Fulda], die versucht ein wenig Werbung für die Ferdinand-Braun Schule zu machen und darüber hinaus ein festes Forum zum austausch anbietet.
+
+Es werden allerdings (wegen PRISM etc.) keine anfragen über den Facebookchat mehr beantwortet
+
+Meetup
+^^^^^^
+Bei http://www.meetup.com/Fachinformatiker-Forum-Fulda[Meetup] gibt es eine Seite bei der zu Treffen eingeladen wird. Einmal zu mir bekannten treffen der IT-Szene in Fulda wie http://lug.rhoen.de[LUG], http://webdevfulda.de/[webdev], http://mag.lab.sh[c4fd], http://de.techtalkfulda.wikia.com[ITT], http://ink.rhoen.de/doku.php[IN-Kompetent], http://www.zeitsprung.org/[Zeitsprung] oder eben Treffen des Fachinformatiker Forums Fulda.
+
+Diaspora
+^^^^^^^^
+Ich liebe https://pod.geraspora.de/u/joerg_reuter[Diaspora] und beantworte dort auch Chatanfragen. Ich gehe bisher davon aus, dass die Anfragen dort gut aufgehoben sind.
+
+Google+ und Twitter, ICQ, IRC
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Werden nicht mehr unterstützt.
+
+Moodle
+^^^^^^
+Für die Moodleinstallation an der Ferdinand-Braun Schule zeichne ich mich verantwortlich und ich weiss, dass alle Anfragen dort gut aufgehoben sind.
+
+E-Mail
+^^^^^^
+E-Mail ist durch PRISM ein Problem geworden. Ich beantworte nur noch verschlüsselte Mails. Unterstütze dabei beide gängige Verfahren PGP und S/MIME. 
+Adresse: joerg@reuter.sc
+
+S/MIME
+++++++
+Ich habe mit S/MIME allerdings Probleme da die privaten Schlüssel bei fremdsignierten Zertifikaten mit Sicherheit bei der NSA sind. Aber ich habe keine Lust für jede E-Mail ein Zertifikat zu importieren. Daher unterstütze ich keine selbstsignierten S/MIME-Mails. Kostenloses Zertifikat bekommt Ihr bei http://www.startssl.com[Startssl], einem israelischen Unternehmen.
+
+PGP
++++
+PGP ist das sichere Verfahren, wird leider von vielen mobilen Geräten nicht unterstützt. Mein PGP-Schlüssel liegt bei http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0x607304CF2282666B[pgp.mit.edu].
+
+

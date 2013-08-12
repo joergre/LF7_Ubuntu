@@ -14,7 +14,7 @@
       ---------------------------
       
       Paritionen:
-      ^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~ 
       Nurnoch bei stark belasteten Maschienen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
       / -> Alles was nicht woanders gespeichert wird
       /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
@@ -25,10 +25,10 @@
       Swap -> Starke I/O-Belastung wenn nicht genügend RAM.
       
 Raid und LVM
-^^^^^^^^^^^^
+~~~~~~~~~~~~
 
 Aufgabe
--------
+^^^^^^^
 Lese bitte die zwei Artikel http://de.wikipedia.org/wiki/RAID[RAID] und http://de.wikipedia.org/wiki/Logical_Volume_Manager[LVM]
 Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe die Deine Antwort in Moodle. Zeitvorgabe: 15 Minuten
 
@@ -41,7 +41,7 @@ Reale Partitionen
 Ich machen die Installation von Ubuntu kompliziert um die Möglichkeiten einer morderner Festplattenverwaltung aufzuzeigen. Selbstverständlich kann das ganze System auch direkt auf einen Festspeicher oder einen Raidverbund aus zwei Festplatten installiert werden, indem die Auswahlmöglichkeiten einfach ignoriert werden. In einer Virtuellen Maschine macht die Partitionierung und ein Software Raid sowieso keinen Sinn.
 
 Aufgabe
--------
+^^^^^^^
 Berechne den Speicherplatz, der in /dev/storage brutto zur Verfügung steht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
 
  
