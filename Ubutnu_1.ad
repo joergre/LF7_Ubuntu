@@ -35,6 +35,7 @@ Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe d
 
 Raid dient der Sicherheit und/oder Performance. LVM erhöht die Flexibilität. LVM alleine in einer Serverumgebung einzusetzen ist keine gute Idee. Besser ist es, beide zu kombinieren. Dies funktioniert z.B. so, dass die einzzelnen Platten eines LVM in Wirklichkeit ein Raid-Verbund sind. Es kann z.B. die 3TB-Platte aus dem LVM in Wirklichkeit das Raid 5 aus obigem Beispiel sein. Bei bedarf lässt sich das LVM "on the fly", d.h. ohne Neustart vergrössern.
       
+.Raid
 image::images/raid_v2.png
 
 Reale Partitionen 
