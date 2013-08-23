@@ -1,10 +1,10 @@
  Unterrichtseinheit 2
  --------------------
  
-    Installationsmethoden
+ Installationsmethoden
  ^^^^^^^^^^^^^^^^^^^^^
  
- * CD
+ * CD oder DVD
  * USB
  * Netzwerk (PXE)
  * Kickstart (unbeaufsichtigte Installation)
@@ -22,7 +22,7 @@ Es gibt zwei Möglichkeiten, einen USB-Stick für das booten von Ubuntu vorzuberei
  
  Für das Programm Disk creator wird ein lauffähiges Ubuntu gebraucht, da dieses Programm bestandteil der Distrubution ist.
  
- Für Unetbootin wird ein lauffähiges Windows gebraucht.
+ Für Unetbootin wird ein lauffähiges Windows oder OSX gebraucht.
  
  Anleitung für beide Verfahren https://help.ubuntu.com/community/Installation/FromUSBStick[hier]
      
