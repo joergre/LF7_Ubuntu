@@ -16,3 +16,26 @@ Ubuntu
 - Support: Normale Version 9 Monate
 - LTS: 5 Jahre
 
+Paritionen
+----------
+[role="incremental"]
+* / -> Alles was nicht woanders gespeichert wird
+* /boot -> War früin Problem. Jetzt wird es nicht mehr ausgelagert.
+* /usr -> Starke "lese"-Belastung
+* /home -> Starke I/O-Bleastung
+* /var -> Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
+* /tmp -> Starke I/O-Belastung. Aus Sicherheitsgrügerne auf eine extr Partition
+* Swap -> Starke I/O-Belastung wenn nicht genüRAM.
+
+Aufgabe
+-------
+Lese bitte die zwei Artikel http://de.wikipedia.org/wiki/RAID[RAID] und http://de.wikipedia.org/wiki/Logical_Volume_Manager[LVM]
+Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe die Deine Antwort in Moodle. Zeitvorgabe: 15 Minuten
+
+Raid
+----
+image::images/raid_v2.png[]
+
+Aufgabe
+-------
+Berechne den Speicherplatz, der in /dev/storage brutto zur Verfüsteht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
