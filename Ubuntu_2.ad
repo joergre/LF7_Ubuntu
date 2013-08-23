@@ -1,14 +1,14 @@
- Unterrichtseinheit 2
- --------------------
+Unterrichtseinheit 2
+--------------------
  
- Installationsmethoden
- ^^^^^^^^^^^^^^^^^^^^^
+Installationsmethoden
+^^^^^^^^^^^^^^^^^^^^^
  
- * CD oder DVD
- * USB
- * Netzwerk (PXE)
- * Kickstart (unbeaufsichtigte Installation)
- * Virtuelle Medien wie ISO-Image
+* CD oder DVD
+* USB
+* Netzwerk (PXE)
+* Kickstart (unbeaufsichtigte Installation)
+* Virtuelle Medien wie ISO-Image
  
  Veraltete Methoden wie die Installation von Diskete oder unuebliche Methoden wie die Installation von einem bereits installiertem Linux-System oder innerhalb eines Windowssystems lassen wir aussen vor.
  
@@ -26,8 +26,8 @@ Es gibt zwei Möglichkeiten, einen USB-Stick für das booten von Ubuntu vorzuber
  
  Anleitung für beide Verfahren https://help.ubuntu.com/community/Installation/FromUSBStick[hier]
      
- Kickstart
- ^^^^^^^^^
+Kickstart
+^^^^^^^^^
  http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu[Siehe hier]
  
    
