@@ -1,5 +1,5 @@
-Einführung in C
-===============
+Linux
+=====
 Jörg Reuter <joerg@reuter.sc>
 :docbooktype: book
 :Author Initials: Jörg Reuter
@@ -25,18 +25,8 @@ Dieses Dokument wurdie in AsciiDoc erstellt und seine aktuelle Fassung ist unter
 
 Einleitung
 ----------
-Dieses Dokument ist entstanden im Rahmen des Unterrichts in LF6 an der Ferdinand-Braun-Schule Fulda. In LF6 wird in der Unterstufe C bei den Fachinformatikern Systemintegration unterrichtet. Rechtlicher Rahmen: http://www.kmk.org/fileadmin/pdf/Bildung/BeruflicheBildung/rlp/Fachinformatiker97-04-25.pdf[Rahmenlehrplan]
+Dieses Dokument ist entstanden im Rahmen des Unterrichts in LF7 an der Ferdinand-Braun-Schule Fulda. Rechtlicher Rahmen: http://www.kmk.org/fileadmin/pdf/Bildung/BeruflicheBildung/rlp/Fachinformatiker97-04-25.pdf[Rahmenlehrplan]
 
-Warum noch ein Buch?
-~~~~~~~~~~~~~~~~~~~~
-Es gibt unzählige Bücher am Markt, die versuchen die Programmiersprache C dem Leser näher zu bringen. An der Ferdinand-Braun-Schule setzen wir z.B. das Buch http://www.amazon.de/dp/3499600749[C - Programmieren von Anfang an] von Helmut Erlenkötter ein.
- 
-Das Problem bei den Büchern ist, dass sie versuchen Ihrem Titel gerecht zu werden. Die Bücher beschränken sich zu sehr auf die Programmiersprache und sind mir insgesamt zu langatmig. 
-Ein Fachinformatiger Systemintegration ist oft deshalb kein Fachinformatiker Anwendungsentwicklung geworden, weil er mit programmieren nicht ganz soviel anfangen kann. 
-
-Um hier eine Motivation zu erreichen, ist es sinnvoll mit der Programmiersprache als "Vehikel" zusammenhänge in der Systemintegration herzustellen wie z.B. Verschlüsselungstechniken zu erklären oder Angriffsmöglichkeiten auf Servern zu verdeutlichen. Dieses Publikum ist zu klein als das es sich lohnt hierfür ein extra Buch zu verlegen.
-
-Das Buch möchte als eine Brücke schlagen zwischen Anwendungsentwicklung und Systemintegration und durch die Brille der Anwendungsentwicklung aktuelle Probleme der Systemintegration erklären ohne dass dabei die Anwendungsentwicklung leidet. 
 
 Git
 ~~~
