@@ -3,27 +3,27 @@ Unterrichtseinheit 1
 
 Ubuntu
 ~~~~~~      
-      Versionierung:
-      Jahr.Monat => 12.04 April 2012
-      Neue version kommt immer April und Oktober.
-      Support: Normale Version 9 Monate
-      LTS: 5 Jahre
+. Versionierung:
+* Jahr.Monat => 12.04 April 2012
+*  Neue version kommt immer April und Oktober.
+*  Support: 
+** Normale Version 9 Monate
+** LTS: 5 Jahre
       
-      Ubuntu-Server
+Anmerkung zur Installation:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
-      Anmerkung zur Installation:
-      ---------------------------
-      
-      Paritionen:
-~~~~~~~~~~~~~~~~~ 
-      Nurnoch bei stark belasteten Maschienen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
-      / -> Alles was nicht woanders gespeichert wird
-      /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
-      /usr -> Starke "lese"-Belastung
-      /home -> Starke I/O-Bleastung
-      /var -> Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
-      /tmp -> Starke I/O-Belastung. Aus Sicherheitsgründen gerne auf eine extr Partition
-      Swap -> Starke I/O-Belastung wenn nicht genügend RAM.
+Paritionen:
+^^^^^^^^^^^^ 
+      Nur noch bei stark belasteten Maschinen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
+
+* / -> Alles was nicht woanders gespeichert wird
+* /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
+* /usr -> Starke "lese"-Belastung
+* /home -> Starke I/O-Bleastung
+* /var -> Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
+* /tmp -> Starke I/O-Belastung. Aus Sicherheitsgründen gerne auf eine extr Partition
+* Swap -> Starke I/O-Belastung wenn nicht genügend RAM.
       
 Raid und LVM
 ~~~~~~~~~~~~
