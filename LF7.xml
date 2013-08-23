@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+
+<article lang="en">
+<articleinfo>
+    <title>Linux</title>
+    <date>2013-08-02</date>
+    <author>
+        <firstname>Jörg</firstname>
+        <surname>Reuter</surname>
+        <email>joerg@reuter.sc</email>
+    </author>
+    <authorinitials>Jörg Reuter</authorinitials>
+<revhistory><revision><revnumber>0.1</revnumber><date>2013-08-02</date><authorinitials>Jörg Reuter</authorinitials></revision></revhistory>
+</articleinfo>
+<simpara><inlinemediaobject>
+  <imageobject>
+  <imagedata fileref="images/joerg_reuter" contentdepth="64"/>
+  </imageobject>
+  <textobject><phrase>images/joerg_reuter</phrase></textobject>
+</inlinemediaobject>
+Jörg Reuter ist seit 2000 Studienrat an der Ferdinand-Braun-Schule in Fulda und unterrichtet dort Anwendungsentwicklung (C und Java) und Netzwerktechnik (Linux), Elektrotechnik (Berufsschule), Politik und katholische Religion (Fachoberschule).
+Geboren 1970 in Gießen, 1990/1991 Zivieldienst (24 Monate) am Universitätsklinikum Gießen in der Hals- Nasen- und Ohrenklinik. Während des Zivieldienstes Fernstudium an der Fernuniversität Hagen (Elektrotechnik). 1991-1997 Studium der Elektrotechnik an der TU Darmstadt. 1997/1998 für einen privaten Bildungsträger in Giessen tätig. 1998 Referndar an der Ferdinand-Braun-Schule.</simpara>
+<sidebar>
+<title>Dieses Dokument</title>
+<simpara>Dieses Dokument wurdie in AsciiDoc erstellt und seine aktuelle Fassung ist unter <ulink url="https://github.com/joergre/c">Github</ulink> verfügbar.</simpara>
+</sidebar>
+<section id="_einleitung">
+<title>Einleitung</title>
+<simpara>Dieses Dokument ist entstanden im Rahmen des Unterrichts in LF7 an der Ferdinand-Braun-Schule Fulda. Rechtlicher Rahmen: <ulink url="http://www.kmk.org/fileadmin/pdf/Bildung/BeruflicheBildung/rlp/Fachinformatiker97-04-25.pdf">Rahmenlehrplan</ulink></simpara>
+<section id="_git">
+<title>Git</title>
+<simpara>Nichts ist so sicher wie die Veränderung in der IT-Welt. Dem muss der Unterricht und auch die Dokumentation Rechnung tragen. Einerseits sollte versucht werden, Wissen zu vermitteln das über das aktuelle hinaus geht. Es sollen allgemeine Zusammenhänge erklärbar werden, die längere Zeit aktuell sind. Auf der anderen Seite muss auch die Dokumentation eine Form aufweisen, die unabhängig von proprietären Formaten ist und einfach zu aktualisieren. Hier spielen zwei Faktoren eine Rolle: Eine Versionsverwaltung, die es einfach ermöglicht Fehler in einem Dokument zu beheben und es anderen ermöglicht an dem Dokument mitzuarbeiten.</simpara>
+<simpara>Es gibt im Internet sehr viele Einführungen in git, daher nur eine extrem kurze Zusammenfassung.</simpara>
+<simpara>Eine Verionsverwaltung ist für ein modernes erstellen von Schriftstücken unerlässlich, ebenso wie beim programmieren. Eine Versionsverwaltung ist auch für Systemintegratoren sinnvoll, z.B, kann bei einem Linux-Server regelmäßig das /etc-Verzeichnis "ausgesckeckt" werden und so Änderungen im Rahemn des Changemanagments nachvollzogen werden. Auch Angriffe sind so eventuell früher erkennbar, wenn Änderungen ohne Kommentar versioniert werden.</simpara>
+<section id="_warum_github">
+<title>Warum Github?</title>
+<simpara>Es ist möglich seinen eigenen Git-Server zu installieren und zu warten. Es gibt sehr viele Server mit schicker Oberflächen in allen möglichen Programmiersprachen: <ulink url="http://code.google.com/p/gitblit/">Java</ulink>, <ulink url="http://www.gitphp.org/">PHP</ulink> oder <ulink url="http://getgitorious.com/">Ruby</ulink> oder gar <ulink url="https://git.wiki.kernel.org/index.php/Gitweb">Perl</ulink>, alles kein Problem.</simpara>
+<simpara>Ein eigener Server ist mit Kosten verbunden und bedarf der Wartung, dies alles kann man sich sparen durch die Nutzung kostenloser oder günstiger Angebote wie Github.
+Daher habe ich mich für einen kommerziellen Dienst entschieden, der kostenlos öffentliche Repositories ermöglicht und seine Software als Opensource kostenlos der Gemeinschaft zur Verfügung stellt und aktiv Linux unterstützt.</simpara>
+</section>
+<section id="_arbeiten_mit_git">
+<title>Arbeiten mit git</title>
+<simpara>Git gibt es für <ulink url="http://code.google.com/p/git-osx-installer/downloads/list?can=3">OSX</ulink>, für <ulink url="http://code.google.com/p/msysgit/downloads/list?can=3">Windows</ulink> und für <ulink url="http://git-scm.com/book/en/Getting-Started-Installing-Git">Linux</ulink>. Diese Anwendung muss installiert werden, damit mit git gearbeitet werden kann.</simpara>
+<simpara>Zum auschecken muss der Befehl</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git clone https://github.com/joergre/c.git</programlisting>
+<simpara>eingegeben werden. Auschecken bedeutet den aktuellen Quellcode in ein Verzeichnis zu speichern.
+Das bedeutete, alle Dateien des Projekts (in diesem Fall des Buchs) werden mit den eventuell aktuellen auf Deinem Rechner verglichen und bei Veränderungen überschrieben.
+Danach ist Dein Verzeichnis identisch mit dem im Repository. Ein Repository (kurz "Repo") ist das Projekt bzw. derOrdner in dem alle Dateien eines Projekts abgelegt sind.</simpara>
+<section id="_fehler_gefunden">
+<title>Fehler gefunden?</title>
+<simpara>Du hast einen Fehler gefunden? Eine Ergänzung oder Anmerkung? Super!</simpara>
+<simpara>Du kannst die Korrektur direkt vornehmen. Dazu veränderst Du die Datei lokal oder fügst mit</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git add &lt;Dateiname&gt;</programlisting>
+<simpara>eine neue Datei hinzu. Natürlich funktioniert auch der Befehl</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git add *</programlisting>
+<simpara>um mehrere Dateien hinzuzufügen.</simpara>
+<simpara>nach musst Du die Änderung bestätigen mit einem</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git commit -m "Commit-Nachricht"</programlisting>
+<simpara>Dann werden die hinzugefügten Dateien oder die veränderten Dateien angezeigt. Die Commit-Nachricht sollte kurz beschreiben, welche Änderungen warum vorgenommen wurden.</simpara>
+<simpara>Die Änderungen sind momentan alle noch lokal. Um sie jetzt auf den Server zu laden, muss ein</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git push origin master</programlisting>
+<simpara>durchgeführt werden. Dafür musst Du Dich aber bei github anmelden.</simpara>
+</section>
+<section id="_branch">
+<title>Branch</title>
+<simpara>Bei grösseren Veränderungen wird ein Branch angelegt. Wichtig dabei ist, dass der Master-Zweig immer vollständig funktionsfähig bleibt.</simpara>
+<informalfigure>
+<mediaobject>
+  <imageobject>
+  <imagedata fileref="images/git.png"/>
+  </imageobject>
+  <textobject><phrase>images/git.png</phrase></textobject>
+</mediaobject>
+</informalfigure>
+<simpara>Anlegen eines Branch mit dem Namen "Unterrichtseinheit_X":</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git checkout -b Unterrichtseinheit_X</programlisting>
+<simpara>Um zum Master-Branch zu wechseln:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git checkout master</programlisting>
+<simpara>Der Branch "Unterrichtseinheit_X" wird gelöscht mit</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git branch -d Unterrichtseinheit_X</programlisting>
+<simpara>Die Befehle waren jetzt alle lokal auf Denem Rechner. Um den Branch der Welt zur Verfügung zu stellen, musst Du diesen auf den Server laden:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git push origin Unterrichtseinheit_X</programlisting>
+</section>
+<section id="_update_und_merge">
+<title>Update und merge</title>
+<simpara>Um Dein lokales Repository zu aktualisieren, verwende</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git pull</programlisting>
+<simpara>Mit einem</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git merge &lt;branch&gt;</programlisting>
+<simpara>versucht git, den Branch und den Masterzweig wieder zusammen zu führen. Meistens gibt es hierbei Konflikte und der Quellcode muss manuell editiert werden.
+Die Unterschiede werden Dir mit</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git diff &lt;quell_branch&gt; &lt;ziel_branch&gt;</programlisting>
+<simpara>angezeigt.</simpara>
+<simpara>Wenn alle Konflikte gelöst wurden, fügst Du die Dateien  mit dem Befehl</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git add &lt;Dateiname&gt;</programlisting>
+<simpara>hinzu.</simpara>
+</section>
+<section id="_tagging">
+<title>Tagging</title>
+<simpara>Der Vollständigkeit wegen noch das Tagging, auch wenn Du es nicht unbedingt benötigen wirst. Beim Tagging kann man bestimmten Entwicklungsständen eine Versionsnummer zuweisen wie z.B. dieser Punkt ist Version 1.0.0.
+Jedem pull wird ein Hashwert zugewiesen. Diese kannst Du Dir mit</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git log</programlisting>
+<simpara>anzeigen lassen.</simpara>
+<simpara>Beispiel:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">commit aad57338f0a5e5e2362ee54ea6a24d0e63f0be48
+Author: Administrator &lt;joerg@reuter.sc&gt;
+Date:   Fri Aug 2 12:13:38 2013 +0200
+    Bilder</programlisting>
+<simpara>Die ersten 10 Zeichen sind wichtig. Wir wollen dem letzten Commit die Versionsnummer 0.0.1 zuweisen.</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git tag 0.0.1 aad57338f0</programlisting>
+</section>
+<section id="_in_die_vergangenheit_reisen">
+<title>In die Vergangenheit reisen</title>
+<simpara>Mit</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git checkout -- &lt;filename&gt;</programlisting>
+<simpara>kommst wieder auf den letzten Stand im HEAD.</simpara>
+<simpara>Wenn Du alle Änderungen verwerfen möchtest, dann brauchst Du zwei Befehle:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">$ git fetch origin
+$ git reset --hard origin/master</programlisting>
+</section>
+</section>
+</section>
+<section id="_asciidoc">
+<title>AsciiDoc</title>
+<simpara>Warum <ulink url="http://asciidoc.org/">AsciiDOC</ulink>? Seit meinem Studium verwende ich Latex und wurde durch die Umwälzung in der Informationsverabeitung vom Papier zum Bildschirm zunehmend vor das Problem gestellt, eine Onlineausgabe und ein Dokument für den Druck vorzuhalten.
+Da ging es mir ähnlich wie dem Verlag Open Source Press, der in einem Artikel <ulink url="http://www.opensourcepress.de/de/blog/2013/05/bye_bye_latex.php">"Bye-bye LaTeX"</ulink> das gleiche Problem schilderte und mich auf AsciiDoc aufmerksam machte.
+Ein einfaches Textformat, wie LaTex gut zu versionieren, Opensource und für alle gängigen Ausgabeformate zu verwenden: HTML4, HTML5, LaTex, Docbook, XML, PDF, Wordpress, Manpages, Postscript etc. Der Text muss nicht mehr angefasst werden, durch einen Befehlsaufruf ist das Dokument in dem jeweiligen Ausgabeformat umgewandelt. Die Ausgabe kann durch .css/xslt-Files zentral angepasst werden.</simpara>
+<simpara>Der Vorteil für mich: Ich stelle nur noch die AsciiDoc-Datei und ev. noch umgewandelt nach PDF zur Verfügung. Den Rest müsst Ihr dann selber machen, je nachdem wie es Euch gefällt.</simpara>
+<section id="_installation_unter_ubuntu">
+<title>Installation unter Ubuntu</title>
+<programlisting language="bash" linenumbering="unnumbered">$sudo apt-get install asciidoc</programlisting>
+<simpara>Das war es schon.
+Umwandeln nach PDF:</simpara>
+<programlisting language="bash" linenumbering="unnumbered">a2x -v -fpdf -dbook c.ad</programlisting>
+<simpara>Das war es schon.</simpara>
+</section>
+<section id="_installation_unter_windows">
+<title>Installation unter Windows</title>
+<simpara><ulink url="http://www.methods.co.nz/asciidoc/INSTALL.html">http://www.methods.co.nz/asciidoc/INSTALL.html</ulink>
+Kann ich ansonsten nicht viel zu sagen, da ich kein Windows unterstütze.</simpara>
+</section>
+<section id="_installation_unter_osx">
+<title>Installation unter OSX</title>
+<simpara><ulink url="http://grepalex.com/2013/02/17/installing-asciidoc-on-osx/">http://grepalex.com/2013/02/17/installing-asciidoc-on-osx/</ulink>
+Wie bei Windows: Nie getestet. Feedback willkommen.</simpara>
+</section>
+</section>
+<section id="_kommunikation">
+<title>Kommunikation</title>
+<section id="_facebook">
+<title>facebook</title>
+<simpara>Ich habe zwei Facebook-Accounts. Auf dem ersten, (<ulink url="https://www.facebook.com/joerg.a.reuter">privaten Account) werden keine Anfragen von Schülern bestätigt. Auf dem <ulink url="https://www.facebook.com/profile.php?id=100004032505531[zweiten">https://www.facebook.com/profile.php?id=100004032505531[zweiten</ulink> Account</ulink> werden alle Anfragen bestätigt. Es werden keine Informationen nur über facebook geteilt die für den Unterricht relevant sind.</simpara>
+<simpara>Es gibt eine Seite <ulink url="https://www.facebook.com/InformationstechnikFulda">Fachinformatiker Forum Fulda</ulink>, die versucht ein wenig Werbung für die Ferdinand-Braun Schule zu machen und darüber hinaus ein festes Forum zum austausch anbietet.</simpara>
+<simpara>Es werden allerdings (wegen PRISM etc.) keine anfragen über den Facebookchat mehr beantwortet</simpara>
+</section>
+<section id="_meetup">
+<title>Meetup</title>
+<simpara>Bei <ulink url="http://www.meetup.com/Fachinformatiker-Forum-Fulda">Meetup</ulink> gibt es eine Seite bei der zu Treffen eingeladen wird. Einmal zu mir bekannten treffen der IT-Szene in Fulda wie <ulink url="http://lug.rhoen.de">LUG</ulink>, <ulink url="http://webdevfulda.de/">webdev</ulink>, <ulink url="http://mag.lab.sh">c4fd</ulink>, <ulink url="http://de.techtalkfulda.wikia.com">ITT</ulink>, <ulink url="http://ink.rhoen.de/doku.php">IN-Kompetent</ulink>, <ulink url="http://www.zeitsprung.org/">Zeitsprung</ulink> oder eben Treffen des Fachinformatiker Forums Fulda.</simpara>
+</section>
+<section id="_diaspora">
+<title>Diaspora</title>
+<simpara>Ich liebe <ulink url="https://pod.geraspora.de/u/joerg_reuter">Diaspora</ulink> und beantworte dort auch Chatanfragen. Ich gehe bisher davon aus, dass die Anfragen dort gut aufgehoben sind.</simpara>
+</section>
+<section id="_google_und_twitter_icq_irc">
+<title>Google+ und Twitter, ICQ, IRC</title>
+<simpara>Werden nicht mehr unterstützt.</simpara>
+</section>
+<section id="_moodle">
+<title>Moodle</title>
+<simpara>Für die Moodleinstallation an der Ferdinand-Braun Schule zeichne ich mich verantwortlich und ich weiss, dass alle Anfragen dort gut aufgehoben sind.</simpara>
+</section>
+<section id="_e_mail">
+<title>E-Mail</title>
+<simpara>E-Mail ist durch PRISM ein Problem geworden. Ich beantworte nur noch verschlüsselte Mails. Unterstütze dabei beide gängige Verfahren PGP und S/MIME.
+Adresse: <ulink url="mailto:joerg@reuter.sc">joerg@reuter.sc</ulink></simpara>
+<section id="_s_mime">
+<title>S/MIME</title>
+<simpara>Ich habe mit S/MIME allerdings Probleme da die privaten Schlüssel bei fremdsignierten Zertifikaten mit Sicherheit bei der NSA sind. Aber ich habe keine Lust für jede E-Mail ein Zertifikat zu importieren. Daher unterstütze ich keine selbstsignierten S/MIME-Mails. Kostenloses Zertifikat bekommt Ihr bei <ulink url="http://www.startssl.com">Startssl</ulink>, einem israelischen Unternehmen.</simpara>
+</section>
+<section id="_pgp">
+<title>PGP</title>
+<simpara>PGP ist das sichere Verfahren, wird leider von vielen mobilen Geräten nicht unterstützt. Mein PGP-Schlüssel liegt bei <ulink url="http://pgp.mit.edu:11371/pks/lookup?op=vindex&amp;search=0x607304CF2282666B">pgp.mit.edu</ulink>.</simpara>
+</section>
+</section>
+</section>
+</section>
+<section id="_unterrichtseinheit_1">
+<title>Unterrichtseinheit 1</title>
+<section id="_ubuntu">
+<title>Ubuntu</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>
+Versionierung:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Jahr.Monat &#8658; 12.04 April 2012
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Neue version kommt immer April und Oktober.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Support:
+</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+Normale Version 9 Monate
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+LTS: 5 Jahre
+</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</itemizedlist>
+</listitem>
+</orderedlist>
+</section>
+<section id="_anmerkung_zur_installation">
+<title>Anmerkung zur Installation:</title>
+<section id="_paritionen">
+<title>Paritionen:</title>
+<simpara>Nur noch bei stark belasteten Maschinen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)</simpara>
+<itemizedlist>
+<listitem>
+<simpara>
+/ &#8594; Alles was nicht woanders gespeichert wird
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+/boot &#8594; War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+/usr &#8594; Starke "lese"-Belastung
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+/home &#8594; Starke I/O-Bleastung
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+/var &#8594; Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+/tmp &#8594; Starke I/O-Belastung. Aus Sicherheitsgründen gerne auf eine extr Partition
+</simpara>
+</listitem>
+<listitem>
+<simpara>
+Swap &#8594; Starke I/O-Belastung wenn nicht genügend RAM.
+</simpara>
+</listitem>
+</itemizedlist>
+</section>
+</section>
+<section id="_raid_und_lvm">
+<title>Raid und LVM</title>
+<section id="_aufgabe">
+<title>Aufgabe</title>
+<simpara>Lese bitte die zwei Artikel <ulink url="http://de.wikipedia.org/wiki/RAID">RAID</ulink> und <ulink url="http://de.wikipedia.org/wiki/Logical_Volume_Manager">LVM</ulink>
+Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe die Deine Antwort in Moodle. Zeitvorgabe: 15 Minuten</simpara>
+<simpara>Raid dient der Sicherheit und/oder Performance. LVM erhöht die Flexibilität. LVM alleine in einer Serverumgebung einzusetzen ist keine gute Idee. Besser ist es, beide zu kombinieren. Dies funktioniert z.B. so, dass die einzzelnen Platten eines LVM in Wirklichkeit ein Raid-Verbund sind. Es kann z.B. die 3TB-Platte aus dem LVM in Wirklichkeit das Raid 5 aus obigem Beispiel sein. Bei bedarf lässt sich das LVM "on the fly", d.h. ohne Neustart vergrössern.</simpara>
+<simpara>image::images/raid_v2.png</simpara>
+</section>
+<section id="_reale_partitionen">
+<title>Reale Partitionen</title>
+<simpara>Ich machen die Installation von Ubuntu kompliziert um die Möglichkeiten einer morderner Festplattenverwaltung aufzuzeigen. Selbstverständlich kann das ganze System auch direkt auf einen Festspeicher oder einen Raidverbund aus zwei Festplatten installiert werden, indem die Auswahlmöglichkeiten einfach ignoriert werden. In einer Virtuellen Maschine macht die Partitionierung und ein Software Raid sowieso keinen Sinn.</simpara>
+</section>
+<section id="_aufgabe_2">
+<title>Aufgabe</title>
+<simpara>Berechne den Speicherplatz, der in /dev/storage brutto zur Verfügung steht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
+Unterrichtseinheit 2</simpara>
+<screen>Installationsmethoden
+^^^^^^^^^^^^^^^^^^^^^
+
+* CD oder DVD
+* USB
+* Netzwerk (PXE)
+* Kickstart (unbeaufsichtigte Installation)
+* Virtuelle Medien wie ISO-Image
+
+Veraltete Methoden wie die Installation von Diskete oder unuebliche Methoden wie die Installation von einem bereits installiertem Linux-System oder innerhalb eines Windowssystems lassen wir aussen vor.
+
+Die Installation mit Hilfe von CD wird immer weniger, da die Images von Ubuntu größer werden und nicht mehr auf eine CD passen. Auch werden immer mehr Laptops und Computer ohne optische Laufwerke ausgeliefert. Dies führt dazu, dass die Installation per USB immer wichtiger wird.
+
+USB
+^^^
+Es gibt zwei Möglichkeiten, einen USB-Stick für das booten von Ubuntu vorzubereiten:
+
+* Disk Creater
+* Unetbootin
+
+Für das Programm Disk creator wird ein lauffähiges Ubuntu gebraucht, da dieses Programm bestandteil der Distrubution ist.
+
+Für Unetbootin wird ein lauffähiges Windows oder OSX gebraucht.
+
+Anleitung für beide Verfahren https://help.ubuntu.com/community/Installation/FromUSBStick[hier]
+
+Kickstart
+^^^^^^^^^
+http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu[Siehe hier]
+
+
+Lizenz
+------
+GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. &lt;http://fsf.org/&gt;
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
+
+  0. Additional Definitions.
+----------------------------
+  As used herein, "this License" refers to version 3 of the GNU Lesser
+General Public License, and the "GNU GPL" refers to version 3 of the GNU
+General Public License.
+
+  "The Library" refers to a covered work governed by this License,
+other than an Application or a Combined Work as defined below.
+
+  An "Application" is any work that makes use of an interface provided
+by the Library, but which is not otherwise based on the Library.
+Defining a subclass of a class defined by the Library is deemed a mode
+of using an interface provided by the Library.
+
+  A "Combined Work" is a work produced by combining or linking an
+Application with the Library.  The particular version of the Library
+with which the Combined Work was made is also called the "Linked
+Version".
+
+  The "Minimal Corresponding Source" for a Combined Work means the
+Corresponding Source for the Combined Work, excluding any source code
+for portions of the Combined Work that, considered in isolation, are
+based on the Application, and not on the Linked Version.
+
+  The "Corresponding Application Code" for a Combined Work means the
+object code and/or source code for the Application, including any data
+and utility programs needed for reproducing the Combined Work from the
+Application, but excluding the System Libraries of the Combined Work.
+
+  1. Exception to Section 3 of the GNU GPL.
+-------------------------------------------
+  You may convey a covered work under sections 3 and 4 of this License
+without being bound by section 3 of the GNU GPL.
+
+  2. Conveying Modified Versions.
+---------------------------------
+  If you modify a copy of the Library, and, in your modifications, a
+facility refers to a function or data to be supplied by an Application
+that uses the facility (other than as an argument passed when the
+facility is invoked), then you may convey a copy of the modified
+version:
+
+   a) under this License, provided that you make a good faith effort to
+   ensure that, in the event an Application does not supply the
+   function or data, the facility still operates, and performs
+   whatever part of its purpose remains meaningful, or
+
+   b) under the GNU GPL, with none of the additional permissions of
+   this License applicable to that copy.
+
+  3. Object Code Incorporating Material from Library Header Files.
+------------------------------------------------------------------
+  The object code form of an Application may incorporate material from
+a header file that is part of the Library.  You may convey such object
+code under terms of your choice, provided that, if the incorporated
+material is not limited to numerical parameters, data structure
+layouts and accessors, or small macros, inline functions and templates
+(ten or fewer lines in length), you do both of the following:
+
+   a) Give prominent notice with each copy of the object code that the
+   Library is used in it and that the Library and its use are
+   covered by this License.
+
+   b) Accompany the object code with a copy of the GNU GPL and this license
+   document.
+
+  4. Combined Works.
+--------------------
+  You may convey a Combined Work under terms of your choice that,
+taken together, effectively do not restrict modification of the
+portions of the Library contained in the Combined Work and reverse
+engineering for debugging such modifications, if you also do each of
+the following:
+
+   a) Give prominent notice with each copy of the Combined Work that
+   the Library is used in it and that the Library and its use are
+   covered by this License.
+
+   b) Accompany the Combined Work with a copy of the GNU GPL and this license
+   document.
+
+   c) For a Combined Work that displays copyright notices during
+   execution, include the copyright notice for the Library among
+   these notices, as well as a reference directing the user to the
+   copies of the GNU GPL and this license document.
+
+   d) Do one of the following:
+
+       0) Convey the Minimal Corresponding Source under the terms of this
+       License, and the Corresponding Application Code in a form
+       suitable for, and under terms that permit, the user to
+       recombine or relink the Application with a modified version of
+       the Linked Version to produce a modified Combined Work, in the
+       manner specified by section 6 of the GNU GPL for conveying
+       Corresponding Source.
+
+       1) Use a suitable shared library mechanism for linking with the
+       Library.  A suitable mechanism is one that (a) uses at run time
+       a copy of the Library already present on the user's computer
+       system, and (b) will operate properly with a modified version
+       of the Library that is interface-compatible with the Linked
+       Version.
+
+   e) Provide Installation Information, but only if you would otherwise
+   be required to provide such information under section 6 of the
+   GNU GPL, and only to the extent that such information is
+   necessary to install and execute a modified version of the
+   Combined Work produced by recombining or relinking the
+   Application with a modified version of the Linked Version. (If
+   you use option 4d0, the Installation Information must accompany
+   the Minimal Corresponding Source and Corresponding Application
+   Code. If you use option 4d1, you must provide the Installation
+   Information in the manner specified by section 6 of the GNU GPL
+   for conveying Corresponding Source.)
+
+  5. Combined Libraries.
+------------------------
+  You may place library facilities that are a work based on the
+Library side by side in a single library together with other library
+facilities that are not Applications and are not covered by this
+License, and convey such a combined library under terms of your
+choice, if you do both of the following:
+
+   a) Accompany the combined library with a copy of the same work based
+   on the Library, uncombined with any other library facilities,
+   conveyed under the terms of this License.
+
+   b) Give prominent notice with the combined library that part of it
+   is a work based on the Library, and explaining where to find the
+   accompanying uncombined form of the same work.
+
+  6. Revised Versions of the GNU Lesser General Public License.
+---------------------------------------------------------------
+  The Free Software Foundation may publish revised and/or new versions
+of the GNU Lesser General Public License from time to time. Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.
+
+  Each version is given a distinguishing version number. If the
+Library as you received it specifies that a certain numbered version
+of the GNU Lesser General Public License "or any later version"
+applies to it, you have the option of following the terms and
+conditions either of that published version or of any later version
+published by the Free Software Foundation. If the Library as you
+received it does not specify a version number of the GNU Lesser
+General Public License, you may choose any version of the GNU Lesser
+General Public License ever published by the Free Software Foundation.
+
+  If the Library as you received it specifies that a proxy can decide
+whether future versions of the GNU Lesser General Public License shall
+apply, that proxy's public statement of acceptance of any version is
+permanent authorization for you to choose that version for the
+Library.
+---</screen>
+</section>
+</section>
+</section>
+</article>

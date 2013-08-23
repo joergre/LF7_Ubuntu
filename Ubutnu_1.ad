@@ -15,7 +15,7 @@ Anmerkung zur Installation:
       
 Paritionen:
 ^^^^^^^^^^^^ 
-      Nur noch bei stark belasteten Maschinen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
+Nur noch bei stark belasteten Maschinen wird eine Partitionierung gemacht (ausser Swap und ev. tmp)
 
 * / -> Alles was nicht woanders gespeichert wird
 * /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
@@ -35,7 +35,7 @@ Arbeite stichwortartig die Unterschiede zwischen Raid und LVM heraus. Schreibe d
 
 Raid dient der Sicherheit und/oder Performance. LVM erhöht die Flexibilität. LVM alleine in einer Serverumgebung einzusetzen ist keine gute Idee. Besser ist es, beide zu kombinieren. Dies funktioniert z.B. so, dass die einzzelnen Platten eines LVM in Wirklichkeit ein Raid-Verbund sind. Es kann z.B. die 3TB-Platte aus dem LVM in Wirklichkeit das Raid 5 aus obigem Beispiel sein. Bei bedarf lässt sich das LVM "on the fly", d.h. ohne Neustart vergrössern.
       
- image::images/raid_v2.png
+image::images/raid_v2.png
 
 Reale Partitionen 
 ^^^^^^^^^^^^^^^^^
@@ -44,12 +44,3 @@ Ich machen die Installation von Ubuntu kompliziert um die Möglichkeiten einer m
 Aufgabe
 ^^^^^^^
 Berechne den Speicherplatz, der in /dev/storage brutto zur Verfügung steht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
-
- 
-
-
-      
-      
-      
-      
-      
