@@ -16,16 +16,16 @@ Ubuntu
 - Support: Normale Version 9 Monate
 - LTS: 5 Jahre
 
-Paritionen
+Partitionen
 ----------
 [role="incremental"]
 * / -> Alles was nicht woanders gespeichert wird
-* /boot -> War früin Problem. Jetzt wird es nicht mehr ausgelagert.
+* /boot -> War früher ein Problem. Jetzt wird es nicht mehr ausgelagert.
 * /usr -> Starke "lese"-Belastung
-* /home -> Starke I/O-Bleastung
-* /var -> Starke Schreibbelastung (hier leigt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
-* /tmp -> Starke I/O-Belastung. Aus Sicherheitsgrügerne auf eine extr Partition
-* Swap -> Starke I/O-Belastung wenn nicht genüRAM.
+* /home -> Starke I/O-Belastung
+* /var -> Starke Schreibbelastung (hier liegt bei Standardeinstellungen das htdoc-Verzeichnis des Apache-Webservers und die Datenbanken von mysql)
+* /tmp -> Starke I/O-Belastung. Aus Sicherheitsgründen gerne auf eine extra Partition
+* Swap -> Starke I/O-Belastung wenn nicht genügend RAM.
 
 Aufgabe
 -------
@@ -38,4 +38,4 @@ image::images/raid_v2.png[]
 
 Aufgabe
 -------
-Berechne den Speicherplatz, der in /dev/storage brutto zur Verfüsteht. Trage das Ergenis in Moodle ein. Zeitvorgabe: 5 Minuten
+Berechne den Speicherplatz, der in /dev/storage brutto zur Verfügung steht. Trage das Ergenbis in Moodle ein. Zeitvorgabe: 5 Minuten
