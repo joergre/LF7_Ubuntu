@@ -1,4 +1,161 @@
-Unterrichtseinheit 3 
---------------------
+Einführung in Ubuntu
+====================
+Jörg Reuter <joerg@reuter.sc>
+:docbooktype: book
+:Author Initials: Jörg Reuter
+:Author: Jörg Reuter
+:date: 2013-08-02
+:toc:
+:icons:
+:numbered: 
+:website: https://github.com/joergre
+:revision: 0.1
+
+image:images/joerg_reuter[height=64]
+Jörg Reuter ist seit 2000 Studienrat an der Ferdinand-Braun-Schule in Fulda und unterrichtet dort Anwendungsentwicklung (C und Java) und Netzwerktechnik (Linux), Elektrotechnik (Berufsschule), Politik und katholische Religion (Fachoberschule). 
+
+Geboren 1970 in Gießen, 1990/1991 Zivildienst (24 Monate) am Universitätsklinikum Gießen in der Hals- Nasen- und Ohrenklinik. Während des Zivildienstes Fernstudium an der Fernuniversität Hagen (Elektrotechnik). 1991-1997 Studium der Elektrotechnik an der TU Darmstadt. 1997/1998 für einen privaten Bildungsträger in Gießen tätig. 1998 Referendar an der Ferdinand-Braun-Schule.
 
  
+
+.Dieses Dokument
+**********************************************************************
+Dieses Dokument wurde in AsciiDoc erstellt und seine aktuelle Fassung ist unter https://github.com/joergre/c[Github] verfügbar.
+**********************************************************************
+
+3. Unterrichtseinheit
+---------------------
+Image virtuelle Maschine: http://labs.fbs-fulda.info/Images
+Benutzername/Passwort: fbs
+
+Youtube-Kanal: http://www.youtube.com/channel/UCd1_XM1QkdeHbZAy7UzN2Ew?feature=watch
+
+Softwareverwaltung
+~~~~~~~~~~~~~~~~~~
+Unter Ubuntu wird Software über Paketquellen zur Verfügung gestellt. paketquellen sind das Medium auf dem sich die Software befindet wie Internetadressen, DVD oder USB-Sticks etc.
+
+Die Software an sich wird in Archive unterteilt die wiederum in Komponenten unterteilt sind. Ein Eintrag in der Konfigurationsdatei (/etc/apt/sources.list) sieht wie folgt aus 
+
+deb http://forsthaus-bimbach.de/ubuntu/ precise-security main restricted universe multiverse
+
+Am Anfang der Zeile steht die Quelle, hier eine Internetadresse, danach das Archiv (hier precise-security) und danach die entsprechende Komponente (hier main restricted unviverse multiverse). Rein praktisch sieht die Dateistruktur wie auf dem Bild aus: Unter der Version kommen die Archive, darunter die Komponenten, dann die Computer-Architektur (ARM, i386 oder amd64 etc.). Nach der Architektur kommt eine Datei die alle Pakete mit entsprechenden Verweise in das Verzeichnis pool enthält. Im Verzeichnis pool sind alle Pakete nach Komponenten und dann alphabetisch unterteilt. Dann kommen die Verzeichnisse der einzelnen Programme.
+
+image:images/sources.jpg[]				
+
+* precise: Die Original-Quelle, die nach veröffentlichung einer Ubuntu-Version nicht mehr verändert wird.
+* precise-security: Aktualisierungen, die zwingend Notwendig sind.
+* precise-updates: Fehlerbereinigte Pakete. Normalerweise keine neue Versionen. 
+* precise-backports: Neuere Versionen von Programmen.
+* precise-proposed: Nicht verwenden! Es dient zum testen von Software.
+
+Komponenten
+~~~~~~~~~~~~
+Alle Pakete sind vier Komponenten zugeordnet, die bei allen Distributionen bisher gleich sind. Sie sind geglieder nach dem grad des Supports der Entwickler von Ubuntu und Lizenzanforderungen:
+
+* main: Entsprechen den Lizenzanforderungen von Ubuntu und werden von den Entwicklern unterstützt
+* restricted: Erfüllen nicht die Lizenzanforderungen, werden aber von den Entwicklern wegen ihrer Bedeutung unterstützt.
+* universe: Freie Software, die nicht direkt von den Entwicklern von ubuntu unterstützt wird.
+* multiverse: Unfreie Software die nicht von den Entwicklern unterstützt wird. bekannt ist die Quelle vor allem wegen Multimediacodecs
+* partner: Kommerzielle, kostenpflichtige Software.
+
+Paketquellen
+~~~~~~~~~~~~
+
+Siehe http://wiki.ubuntuusers.de/Paketquellen_freischalten#Terminal
+
+Aufbau des Befehls: 
+
+sudo add-apt-repository 'deb PFAD/ZUR/QUELLE DISTRIBUTION KOMPONENTEN' 
+
+Beispiel: 
+
+sudo add-apt-repository 'deb http://archive.ubuntu.com/ubuntu precise main restricted universe multiverse' 
+
+Oft ist es nötig, einen Key einzufügen. Dies geschieht mit dem Befehl:
+
+sudo apt-key adv --keyserver PGP_KEY_SERVER --recv-keys ID 
+
+Beispiel:
+
+sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com A1715D88E1DF1F24
+
+PPA
+~~~
+(siehe auch http://wiki.ubuntuusers.de/Paketquellen_freischalten/PPA)
+
+
+PPA (Personal Package Archive) ermöglicht Entwicklern Quellpakete auf den Server zu laden und das System baut für verschiedene Architekturen und Versionen die entsprechenden Instalaltionspackete.
+
+Der Einsatz von PPA-Paketen ist bei Produktivsystemen verlangt erhöhte Vorsicht, da die Überprüfung der Pakete auf Sicherheitslücken etc. nicht immer gewährleistet ist.
+
+Hinzufügen entsprechender Quellen:
+
+sudo add-apt-repository ppa:LP-BENUTZER/PPA-NAME 
+
+sources.list
+~~~~~~~~~~~~
+In der Datei sources.list im verzeichnis /etc/apt und den Unterverzeichnissen sind alle Paketquellen verzeichnet und können bei Bedarf auch im Editor abgeändert werden. Siehe auch http://wiki.ubuntuusers.de/sources.list
+
+Metapakete
+~~~~~~~~~~
+Metapakete beinhalten sehr viele Programme. Z.B. das Metapaket ubuntu-desktopm enthät die komplette graphische Oberfläche mit allen Programmen die nötig sind wie Thunderbird, firefox etc.  Metapakete ersparen also die Installation vieler kleiner Pakete und ermöglichen es mit einem kurzen Befehl sehr viele häufig gebrauchte Programmpakete zu installieren. Mehr dazu: http://wiki.ubuntuusers.de/Metapakete
+
+Updates
+~~~~~~~
+
+apt-get update
+apt-get upgrades
+
+Manche Pakete wie ein neuer Kernel werden erst nach aufruf des Befehls:
+
+apt-get dist-upgrade
+
+installiert.
+ 
+Pakete suchen und isntallieren
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 
+Mit dem Befehl 
+ 
+apt-get install apache 2 
+ 
+wird der Werbserver Apache2 installiert.
+ 
+Das Suchen nach Paketen:
+ 
+apt-cache serach apache
+ 
+werden alle Pakete gesucht, bei denen der Name apache auftaucht.
+ 
+Lokale Paketquellen 
+~~~~~~~~~~~~~~~~~~~
+Da es immer wieder Probleme mit der Internetverbindung in der Schule gibt, wird dringend empfohlen bei Referaten etc lokale paketquellen zu verwenden. mehr dazu findet Ihr hier: http://wiki.ubuntuusers.de/Lokale_Paketquellen
+
+ 
+
+ == Copyright
+
+Das Copyright an diesem Skript liegt bei Jörg Reuter, Ferdinand-Braun-Schule Fulda.
+
+Dieses Skript ist veröffentlicht unter der creative commons Lizenz +
+'Namensnennung - Weitergabe unter gleichen Bedingungen' (by-sa). 
+
+image::images/cc-by-sa.png["CC by sa",width=100]
+
+Eine Beschreibung der Lizenz finden Sie hier: +
+http://creativecommons.org/licenses/by-sa/3.0/de/
+
+Der rechtsverbindliche Text der Lizenz ist hier: +
+http://creativecommons.org/licenses/by-sa/3.0/de/legalcode
+
+Die Software von Jörg Reuter ist in weiten Teilen Open Source. +
+
+Wenn nicht anders angegeben, ist der Quellcode veröffentlicht unter der GPLv3:
+
+image::images/gplv3-127x51.png["",width=100]
+
+Der rechtsverbindliche Text der GPLv3 Lizenz ist hier: +
+http://www.gnu.org/licenses/gpl.html
+
+Deutsche Übersetzung: +
+http://www.gnu.de/documents/gpl.de.html
