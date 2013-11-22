@@ -1,0 +1,142 @@
+Einführung in Ubuntu
+====================
+Jörg Reuter <joerg@reuter.sc>
+:docbooktype: book
+:Author Initials: Jörg Reuter
+:Author: Jörg Reuter
+:date: 2013-08-02
+:toc:
+:icons:
+:numbered: 
+:website: https://github.com/joergre
+:revision: 0.1
+
+image:images/joerg_reuter[height=64]
+Jörg Reuter ist seit 2000 Studienrat an der Ferdinand-Braun-Schule in Fulda und unterrichtet dort Anwendungsentwicklung (C und Java) und Netzwerktechnik (Linux), Elektrotechnik (Berufsschule), Politik und katholische Religion (Fachoberschule). 
+
+Geboren 1970 in Gießen, 1990/1991 Zivildienst (24 Monate) am Universitätsklinikum Gießen in der Hals- Nasen- und Ohrenklinik. Während des Zivildienstes Fernstudium an der Fernuniversität Hagen (Elektrotechnik). 1991-1997 Studium der Elektrotechnik an der TU Darmstadt. 1997/1998 für einen privaten Bildungsträger in Gießen tätig. 1998 Referendar an der Ferdinand-Braun-Schule.
+
+ 
+
+.Dieses Dokument
+**********************************************************************
+Dieses Dokument wurde in AsciiDoc erstellt und seine aktuelle Fassung ist unter https://github.com/joergre/c[Github] verfügbar.
+**********************************************************************
+
+3. Unterrichtseinheit
+---------------------
+Die Datei interfaces
+~~~~~~~~~~~~~~~~~~~~
+Die Einstellung der IP-Adresse des Host findet in der Datei /etc/host statt.
+Standardmässig sieht sie so aus: 
+
+[source, c]
+----
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+#The primary network interface
+auto eth0
+iface eth0 inet dhcp
+----
+
+Das Interface lo ist das sogenannte loopback-Interface. Dieses Interface verweist auf die IP-Adresse 127.0.0.1. Dieses Interface wird zwingend für den Betrieb eines Linux-Systems gebraucht und darf unter keinen Umständen gelöscht werden.
+
+eth0 ist die erste Netzwerkkarte. "auto eth0" bedeutet, dass die Netzwerkkarte beim starten des Computers automatisch aktivirt wird. Der Eintrag "iface eth0 inet dhcp" bedeutet das einen IPc4-Adresse (inet) automatisch über dhcp bezogen wird.
+
+Statische IP-Adresse:
+
+[source, c]
+----
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+#The primary network interface
+auto eth0
+iface eth0 inet static
+    address 192.168.0.97   
+    netmask 255.255.255.0  
+    gateway 192.168.0.1
+    dns-nameservers 192.168.0.1 10.10.0.2
+----
+
+Wir sehen, dass der Eintrag dhcp durch static ersetzt worden ist. Somit wird keine DHCP-Request gestartet und es muss manuell eine IPv4-Adresse eingestellt werden. "adress" gibt die IP-Adresse an, "netmask" die Netzwerkmaske, "gateway" den zugehörigen gateway. "dns-nameserver" gibt den DNS-Server für die Namensauflösung an.
+
+Weitere Informationen: http://wiki.ubuntuusers.de/interfaces
+
+Mit dem Befehl ifconfig wird die aktuelle Konfiguration der Netzwerkkarte angezeigt. Mit dem Befehl route werden die Routen angezeigt, insbesondere das Default-Gateway. 
+Default DNS-Server steht in der /etc/resolv.conf. Diese darf bei neuen Systemen nicht mehr per Hand in diese Datei eingetragen werden.
+
+Bonding
+~~~~~~~
+Zusammenfassen mehrer Ethernetports zu einem virtuellen Ethernetport. Es gibt 7 verschiedene Modes. 
+
+Die Hauptfrage für die richtige Auswahl ist: unterstützt mein Switch 802.3ad (etherchannel)
+Ja -> Mode 4
+Nein -> Mode 6
+
+Installation
+~~~~~~~~~~~~
+
+apt-get install ifenslave
+
+In die Datei /etc/modules Eintragen:
+
+bonding
+
+/etc/interfaces für Bonding anpassen:
+
+[source, c]
+----
+auto eth0
+iface eth0 inet manual
+bond-master bond0
+
+auto eth1
+iface eth1 inet manual
+bond master bond0
+
+auto bond0
+
+iface bond0 inet static
+    address 192.168.0.97   
+    netmask 255.255.255.0  
+    gateway 192.168.0.1
+    dns-nameservers 192.168.0.1 10.10.0.2
+    bond-mode 6
+    bond-miimon 100
+    bond-slave none
+----
+
+Netzwerk neu starten:
+service networking restart
+
+
+== Copyright
+
+Das Copyright an diesem Skript liegt bei Jörg Reuter, Ferdinand-Braun-Schule Fulda.
+
+Dieses Skript ist veröffentlicht unter der creative commons Lizenz +
+'Namensnennung - Weitergabe unter gleichen Bedingungen' (by-sa). 
+
+image::images/cc-by-sa.png["CC by sa",width=100]
+
+Eine Beschreibung der Lizenz finden Sie hier: +
+http://creativecommons.org/licenses/by-sa/3.0/de/
+
+Der rechtsverbindliche Text der Lizenz ist hier: +
+http://creativecommons.org/licenses/by-sa/3.0/de/legalcode
+
+Die Software von Jörg Reuter ist in weiten Teilen Open Source. +
+
+Wenn nicht anders angegeben, ist der Quellcode veröffentlicht unter der GPLv3:
+
+image::images/gplv3-127x51.png["",width=100]
+
+Der rechtsverbindliche Text der GPLv3 Lizenz ist hier: +
+http://www.gnu.org/licenses/gpl.html
+
+Deutsche Übersetzung: +
+http://www.gnu.de/documents/gpl.de.html

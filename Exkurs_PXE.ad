@@ -1,0 +1,54 @@
+Linux
+=====
+Jörg Reuter <joerg@reuter.sc>
+:docbooktype: book
+:Author Initials: Jörg Reuter
+:Author: Jörg Reuter
+:date: 2013-08-02
+:toc:
+:icons:
+:numbered: 
+:website: https://github.com/joergre/c
+:revision: 0.1
+
+image:images/joerg_reuter[height=64]
+Jörg Reuter ist seit 2000 Studienrat an der Ferdinand-Braun-Schule in Fulda und unterrichtet dort Anwendungsentwicklung (C und Java) und Netzwerktechnik (Linux), Elektrotechnik (Berufsschule), Politik und katholische Religion (Fachoberschule). 
+Geboren 1970 in Gießen, 1990/1991 Zivieldienst (24 Monate) am Universitätsklinikum Gießen in der Hals- Nasen- und Ohrenklinik. Während des Zivieldienstes Fernstudium an der Fernuniversität Hagen (Elektrotechnik). 1991-1997 Studium der Elektrotechnik an der TU Darmstadt. 1997/1998 für einen privaten Bildungsträger in Giessen tätig. 1998 Referndar an der Ferdinand-Braun-Schule.
+
+ 
+
+.Dieses Dokument
+**********************************************************************
+Dieses Dokument wurdie in AsciiDoc erstellt und seine aktuelle Fassung ist unter https://github.com/joergre/c[Github] verfügbar.
+**********************************************************************
+
+Exkurs - Server fuer PXE
+------------------------
+
+Das ganze Bild
+^^^^^^^^^^^^^^
+Die PXE-fähige Netzwerkkarte schickt einen DHCP-Request per Broadcast. Dieser wird vonHäkchen dem zuständigen DHCP-Server beantwortet. Der Client bekommt die IP-Adresse und den Pfad und Dateiname des Installationsmedium genannt. Daraufhin lädt die Netzwerkkarte das Image und führt es aus. Satt einer Installation kann auch ein Betriebssystem in das RAM geladen werden. Dieser Vorgang wird häufig bei Thin-Clients eingesetzt.
+
+PXE in Virtual Box
+^^^^^^^^^^^^^^^^^^
+Unter Virtual Box aktivieren wir PXE, indem wir das Häkchen bei Netzwerk setzen und dieses mit den kleinen Pfeiltasten rechts in die oberste Position bringen.
+
+image::images/vb_pxe.jpg[]
+
+Nach dem Start sehen wir dann folgendes Bild auf dem Client:
+
+image::images/dhcp_wait.jpg[]
+
+
+Wenn wir uns jetzt die Aktivität von Wireshark auf den Netzwerk anschauen, bekommen wir folgendes Bild:
+
+image::images/DHCP_Discover_Fail.png[]
+
+Paketaufbau eines DHCP-Pakets: http://de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol[wikipedia - DHCP]
+
+|00 | 01 | 00 | 01 | 00 | 06 | 08 | 00|
+|op |
+
+* op: Anforderung (request = 1) oder eine Antwort (reply = 2)
+* htype: 1 = Ethernet, 6 = IEEE 802 Netzwerke oder 7 = ARCNET
+*  

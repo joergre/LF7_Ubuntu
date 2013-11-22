@@ -10,7 +10,7 @@ Installationsmethoden
 * Kickstart (unbeaufsichtigte Installation)
 * Virtuelle Medien wie ISO-Image
  
-Veraltete Methoden wie die Installation von Diskete oder unuebliche Methoden wie die Installation von einem bereits installiertem Linux-System oder innerhalb eines Windowssystems lassen wir aussen vor.
+Veraltete Methoden wie die Installation von Diskete oder unübliche Methoden wie die Installation von einem bereits installiertem Linux-System oder innerhalb eines Windowssystems lassen wir aussen vor.
  
 Die Installation mit Hilfe von CD wird immer weniger, da die Images von Ubuntu größer werden und nicht mehr auf eine CD passen. Auch werden immer mehr Laptops und Computer ohne optische Laufwerke ausgeliefert. Dies führt dazu, dass die Installation per USB immer wichtiger wird.
  
@@ -29,6 +29,11 @@ Anleitung für beide Verfahren https://help.ubuntu.com/community/Installation/Fr
      
 Kickstart
 ^^^^^^^^^
+Kickstart ermöglich eine unbeaufsichtigte Installation von Ubuntu oder auch anderer Linux-Distributionen. Unter Windows wird der Ausdruck "unattended installation" verwendet.
+
 http://askubuntu.com/questions/122505/how-do-i-create-completely-unattended-install-for-ubuntu[Siehe hier]
  
-   
+Netzwerk
+^^^^^^^^
+Die Installation von Ubuntu über das Netzwerk mit Hilfe von PXE ist technisch sehr interessant.   
+
