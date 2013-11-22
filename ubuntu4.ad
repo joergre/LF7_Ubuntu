@@ -27,7 +27,7 @@ Dieses Dokument wurde in AsciiDoc erstellt und seine aktuelle Fassung ist unter 
 ---------------------
 Die Datei interfaces
 ~~~~~~~~~~~~~~~~~~~~
-Die Einstellung der IP-Adresse des Host findet in der Datei /etc/host statt.
+Die Einstellung der IP-Adresse des Host findet in der Datei /etc/network/interfaces statt.
 Standardmässig sieht sie so aus: 
 
 [source, c]
@@ -43,7 +43,7 @@ iface eth0 inet dhcp
 
 Das Interface lo ist das sogenannte loopback-Interface. Dieses Interface verweist auf die IP-Adresse 127.0.0.1. Dieses Interface wird zwingend für den Betrieb eines Linux-Systems gebraucht und darf unter keinen Umständen gelöscht werden.
 
-eth0 ist die erste Netzwerkkarte. "auto eth0" bedeutet, dass die Netzwerkkarte beim starten des Computers automatisch aktivirt wird. Der Eintrag "iface eth0 inet dhcp" bedeutet das einen IPc4-Adresse (inet) automatisch über dhcp bezogen wird.
+eth0 ist die erste Netzwerkkarte. "auto eth0" bedeutet, dass die Netzwerkkarte beim starten des Computers automatisch aktivirt wird. Der Eintrag "iface eth0 inet dhcp" bedeutet das einen IPv4-Adresse (inet) automatisch über dhcp bezogen wird.
 
 Statische IP-Adresse:
 
@@ -73,7 +73,7 @@ Bonding
 ~~~~~~~
 Zusammenfassen mehrer Ethernetports zu einem virtuellen Ethernetport. Es gibt 7 verschiedene Modes. 
 
-Die Hauptfrage für die richtige Auswahl ist: unterstützt mein Switch 802.3ad (etherchannel)
+Die Hauptfrage für die richtige Auswahl ist: unterstützt mein Switch 802.3ad (EtherChannel bei Cisco)
 Ja -> Mode 4
 Nein -> Mode 6
 
@@ -86,7 +86,7 @@ In die Datei /etc/modules Eintragen:
 
 bonding
 
-/etc/interfaces für Bonding anpassen:
+/etc/network/interfaces für Bonding anpassen:
 
 [source, c]
 ----
