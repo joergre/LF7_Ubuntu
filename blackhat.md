@@ -45,7 +45,7 @@ Weitere Informationen über den Aufbau: https://de.wikipedia.org/wiki/Autorun
 
 xxd
 ---
-Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/blob/master/xxd.demo. Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
+Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/ (xxd.demo). Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
 
 DD-WRT
 ------
@@ -64,7 +64,7 @@ who und write
 Der Befehl who zeigt eine Vielzahl von Informationen über die momentan am System angemeldeten Benutzer an (https://wiki.ubuntuusers.de/who/).
 Mit write können Nachrichten zwischen den Benutzern eines Computers ausgetauscht werden (Beispielsitzung: https://youtu.be/obDYpIn-PYM
  und mehr zum Befehl: https://en.wikipedia.org/wiki/Write_(Unix))
-whois zeigt den DNS-Eintrag der entsprechenden IP-Adresse an. Beispiel: https://github.com/joergre/ttyrecords/blob/mastFUer/whois.rec.
+whois zeigt den DNS-Eintrag der entsprechenden IP-Adresse an. Beispiel: https://github.com/joergre/ttyrecords/ (whois.rec).
 
 Proxy-Server
 ------------
