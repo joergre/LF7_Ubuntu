@@ -18,16 +18,16 @@ Erstes auftreten bei 09:16. RAT steht für Remote Administration Tool und bezeic
 
 Optisches Overlay Netzwerk
 --------------------------
-(12:53) ist ein Netzwerk, dass auf ein bestehendes Netzwerk aufsetzt und sich z.B. durch ein eigenes Routing oder andere logische Strukturen von dem darunter liegenden Netz abgrenzt. Beispiele sind z.B. VoIP (Telefongespräche über das Internet führen, wobei das logische Netz mit den Endgeräten eine von dem Internet unabhängige Logik  hat) oder das Tornetz, dass versucht Datenpakete anonym über das Internet zu transportieren. Weitere Informationen: https://de.wikipedia.org/wiki/Overlay-Netz
+(00:12:53) ist ein Netzwerk, dass auf ein bestehendes Netzwerk aufsetzt und sich z.B. durch ein eigenes Routing oder andere logische Strukturen von dem darunter liegenden Netz abgrenzt. Beispiele sind z.B. VoIP (Telefongespräche über das Internet führen, wobei das logische Netz mit den Endgeräten eine von dem Internet unabhängige Logik  hat) oder das Tornetz, dass versucht Datenpakete anonym über das Internet zu transportieren. Weitere Informationen: https://de.wikipedia.org/wiki/Overlay-Netz
 
 ssh
 ---
-(23:49) ssh -l  baut eine verschlüsselte Terminalsitzung zu einem anderen Computer auf. Die Option -l bedeutet, dass ein anderer Loginname verwendet wird als am System an dem gerade gearbeitet wird.
+(00:23:49) ssh -l  baut eine verschlüsselte Terminalsitzung zu einem anderen Computer auf. Die Option -l bedeutet, dass ein anderer Loginname verwendet wird als am System an dem gerade gearbeitet wird.
 Weiterführende Informationen: http://linuxcommand.org/man_pages/ssh1.htmlgi
 
 Deep Packet Inspection
 ----------------------
-(23:57) ist eine Art von Firewall die vor allem bei grossen Unternehmen und staatlichen Einrichtungen verwendet wird. Die gängig Firewall ist eine SPI (Stateful Packet Inspection), die in fast jedem heute verkauften Router zum Einsatz kommt. Diese Firewall untersucht den Kopf und den Fuss eines jeden Datenpakets und überprüft, anhand einer Tabelle über alle bestehenden Datenverbindungen, ob dieses Paket zu einer existierenden Datenverbindung gehört. Wenn das Paket zu einem bestehenden Socket (Kommunikationskanal) gehört wird das Paket durchgelassen. 
+(00:23:57) ist eine Art von Firewall die vor allem bei grossen Unternehmen und staatlichen Einrichtungen verwendet wird. Die gängig Firewall ist eine SPI (Stateful Packet Inspection), die in fast jedem heute verkauften Router zum Einsatz kommt. Diese Firewall untersucht den Kopf und den Fuss eines jeden Datenpakets und überprüft, anhand einer Tabelle über alle bestehenden Datenverbindungen, ob dieses Paket zu einer existierenden Datenverbindung gehört. Wenn das Paket zu einem bestehenden Socket (Kommunikationskanal) gehört wird das Paket durchgelassen. 
 
 Dem gegenüber beinhaltet das DPI (Deep Packet Inspection) alle eigenschaften von SPI und überprüft zusätzlich auch den Inhalt eines jeden Datenpakets. Anhand des Inhaltes wird dann zusätlich entschieden wie dieses Datenpaket behandelt wird. Um auch verschlüsselten Internetverkehr wie z.B. SSL-Verbindungen zu überprüfen baut die DPI eine Art "Man in the Middel-Attack" auf. 
 ![Man in the middle](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Man_in_the_middle_attack.svg/500px-Man_in_the_middle_attack.svg.png "Man in the miidle")
@@ -37,43 +37,43 @@ Diskutiert werden diese Firewalls z.B. in Großbritannien als sogenannter Pornof
 
 Intrusion Detection System
 --------------------------
-(23:57) Es gibt sowohl Host basierende Systeme wie auch Systeme die Bestandteil einer Firewall sind. Letztere sind vom technischen Standpunkt die bessere Lösung. Intrusion Detection System beobachten den Netzverkehr und versuchen regelbasiert Angriffsmsuter zu erkennen. Ein bekanntes Produkt eines IDS ist Snort (https://www.snort.org/). Es bezeichnet sich selbst als NIDS um darauf hinzuweisen, dass es nicht Host basiert ist sondern ein Netzwerk vor Angriffen schützt. Ein HIDS (Host basierte IDS) ist z.B. OSSEC (https://ossec.github.io/) oder Samhain (http://www.la-samhna.de/samhain/). Es können auch NIDS und HIDS in einem Netzwerk zeitgleich eingesetzt werden.
+(00:23:57) Es gibt sowohl Host basierende Systeme wie auch Systeme die Bestandteil einer Firewall sind. Letztere sind vom technischen Standpunkt die bessere Lösung. Intrusion Detection System beobachten den Netzverkehr und versuchen regelbasiert Angriffsmsuter zu erkennen. Ein bekanntes Produkt eines IDS ist Snort (https://www.snort.org/). Es bezeichnet sich selbst als NIDS um darauf hinzuweisen, dass es nicht Host basiert ist sondern ein Netzwerk vor Angriffen schützt. Ein HIDS (Host basierte IDS) ist z.B. OSSEC (https://ossec.github.io/) oder Samhain (http://www.la-samhna.de/samhain/). Es können auch NIDS und HIDS in einem Netzwerk zeitgleich eingesetzt werden.
 HIDS untersucht insbeondere Logdateien, System- und Kerneldateien und meldet Veränderungen und auffällige Einträge. Eine NIDS überwacht hingegen den Netzwerkverkehr und meldet auffällige Muster wie z.B. ein Portscan, auffällig viele Zugriffe aus einem IP-Raum oder andere Auffälligkeiten. Selbstverständlich gibt auch HIDS und NIDS in einem Produkt kombiniert. Das nennt man dann Hybride IDS. Ein bekannter Vertreter ist Prelude https://www.prelude-siem.org/. Auf Grund des komplexen Aufbaus und der zentralen, exponierten Standortes in einem Netzwerk können diese, ähnlich wie DPI-System, selbst zu einem heruasragenden Ziel für Angriffe werden. Zu einem gutem NIDS-System gehören dann noch sogenannte Honeypots dazu. Honeypots (Honigtopf) sind Systeme , die keine Funktion im Netzwerk haben aber dazu dienen Angreifer anzulocken. Wird auf diesen System eine Aktivität verzeichnet, findet mit hoher Wahrscheinlichkeit gerade ein Angriff auf das Netzwerk statt. Es gibt eine sehr grosse Auswahl an Programmen und Betriebssysteme die einen Honeypot zur Verfügung stellen. 
 Weitere Informationen zum IDS https://de.wikipedia.org/wiki/Intrusion_Prevention_System und zu Honeypots: https://de.wikipedia.org/wiki/Honeypot
 
 autorun.inf
 -----------
-Diese Datei wird auf einem Unix-Betriebssystem vom USB-Stick bei 24:54 geöffnet. Diese Datei kommt aus dem Microsoftbereich und war zuerst bei Serverbetriebssysteme von Microsoft gesperrt und nicht bei Unix-betribssystem implementiert. 
+(00:23:58) Diese Datei wird auf einem Unix-Betriebssystem vom USB-Stick bei 24:54 geöffnet. Diese Datei kommt aus dem Microsoftbereich und war zuerst bei Serverbetriebssysteme von Microsoft gesperrt und nicht bei Unix-betribssystem implementiert. 
 Die Datei autorun.inf wird häufig automatisch ausgeführt beim einstecken von USB-Geräten oder dem einlegen von Datenträgern wie DVD. Durch den großen Erfolg der Datei wurde die Sperre bei Server-Bertriebssystemen der Firma Microsoft aufgehoben und sie wird sogar von Unix-Betriebssystemen beachtet. Man kann sie manuell bei allen Betriebssystemen ausschalten (Drop-Out). 
 Die Zeile open=.mssvc gibt an, dass die versteckte Datei (.) .mssvc beim einstecken des Sticks ausgeführt werden soll. Zusätzlich gibt es noch die Zeile shellexecute. Shellexecute bewirkt, dass nicht direkt ausführbare Dateien mit dem entsprechenden Programm gestertet werden. Beispielsweise ermöglicht shellexecute das Anzeigen einer HTML-Seite beim einlegen des Datenträfers. Shellexecute und open sollten eigentlich nicht in der gleichen Datei verwendet werden, dies passiert in der Praxis aber sehr häufig. Beim einstecken des Sticks wird also automatisch (nach Entsperrung mit dem Fingerabdruck) die versteckte Datei .mssvc ausgeführt, in der wohl das RAT steht. Die Datei .mssvc gehört zur Samsung SecretZone (http://www.seagate.com/de/de/support/downloads/item/samsung-secretzone-master-dl/) und dient dazu, Teile eines Speichermediums vor unberechtigten Zugriff zu schützen.
 Weitere Informationen über den Aufbau: https://de.wikipedia.org/wiki/Autorun
 
 xxd
 ---
-Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/ (xxd.demo) Abzuspielen mit: http://playterm.org/. Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
+(00:23:58)Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/ (xxd.demo) Abzuspielen mit: http://playterm.org/. Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
 
 DD-WRT
 ------
-(30:48) Ist eine offene Software für Router (https://de.wikipedia.org/wiki/DD-WRT und http://www.dd-wrt.com/site/index) Das Onion-Router-Project ist bereits in der DD-WRT-Software vorbereitet und kann durch anhacken aktiviert werden (http://dd-wrt.com/wiki/index.php/Tor_on_R7000)
+(00:30:48) Ist eine offene Software für Router (https://de.wikipedia.org/wiki/DD-WRT und http://www.dd-wrt.com/site/index) Das Onion-Router-Project ist bereits in der DD-WRT-Software vorbereitet und kann durch anhacken aktiviert werden (http://dd-wrt.com/wiki/index.php/Tor_on_R7000)
 
 Onion-Router
 -------------
-(30:48) Onion ist eine andere Bezeichnung für das Tor-Netzwerk. Das Tor-Netzwerk verschleiert die echte IP-Adresse, da diese durch die IP-Adresse der Exit-Nodes ersetzt wird. Durch die (hoffentlich) hohen Anzahl von Computern auf dem Weg zum Exit-Node kann nicht festgestellt werden von welchem Computer tatsächlich die Verbindung aufgebaut wurde.
+(00:30:48) Onion ist eine andere Bezeichnung für das Tor-Netzwerk. Das Tor-Netzwerk verschleiert die echte IP-Adresse, da diese durch die IP-Adresse der Exit-Nodes ersetzt wird. Durch die (hoffentlich) hohen Anzahl von Computern auf dem Weg zum Exit-Node kann nicht festgestellt werden von welchem Computer tatsächlich die Verbindung aufgebaut wurde.
 
 IP-Adresse
 ----------
-(39:26) Eine IP-Adresse ist eine eindeutige Nummer innerhalb eines Computernetzwerkes. Eine IPv4-Adresse besteht aus 4 Zahlen die maximal bis 255 (da eine Zahl 1 Byte darstellt und damit 2^8 mögliche Kombinationen) gehen. Insofern ist die IP-Adresse 95.45.265.284 keine gültige IP-Adresse.
+(00:39:26) Eine IP-Adresse ist eine eindeutige Nummer innerhalb eines Computernetzwerkes. Eine IPv4-Adresse besteht aus 4 Zahlen die maximal bis 255 (da eine Zahl 1 Byte darstellt und damit 2^8 mögliche Kombinationen) gehen. Insofern ist die IP-Adresse 95.45.265.284 keine gültige IP-Adresse.
 
 who und write
 -------------
-Der Befehl who zeigt eine Vielzahl von Informationen über die momentan am System angemeldeten Benutzer an (https://wiki.ubuntuusers.de/who/).
+(00:40:00) Der Befehl who zeigt eine Vielzahl von Informationen über die momentan am System angemeldeten Benutzer an (https://wiki.ubuntuusers.de/who/).
 Mit write können Nachrichten zwischen den Benutzern eines Computers ausgetauscht werden (Beispielsitzung: https://youtu.be/obDYpIn-PYM
  und mehr zum Befehl: https://en.wikipedia.org/wiki/Write_(Unix))
 whois zeigt den DNS-Eintrag der entsprechenden IP-Adresse an. Beispiel: https://github.com/joergre/ttyrecords/ (whois.rec) Abzuspielen mit; http://playterm.org/.
 
 Proxy-Server
 ------------
-(41:59) Proxy bedeutet Stellvertreter und ersetzt die IP-Adressen der zu einem Dienst aufbauenden IP-Adressen durch die eigene. Damit ist die eigentliche IP-Adresse versteckt und kann nicht einfach zurückverfolgt werden.
+(00:41:59) Proxy bedeutet Stellvertreter und ersetzt die IP-Adressen der zu einem Dienst aufbauenden IP-Adressen durch die eigene. Damit ist die eigentliche IP-Adresse versteckt und kann nicht einfach zurückverfolgt werden.
 
 Bluetooth
 ---------
@@ -85,7 +85,7 @@ PGP steht für Pretty Good Privacy und eines der am besten überprüften Verschl
 
 Festplattenrettung
 ------------------
-(1:12:28) Programme die aus Speicherresten zusammenhängende Bereich erstellen gibt es doch einige. Hier ist sicherlich nicht unbedingt das FBI von nöten. Aber eventuell ist das FBI doch besser aufgestellt, als die vielen Firmen die Professionell Festplatten wieder herstellen.
+(01:12:28) Programme die aus Speicherresten zusammenhängende Bereich erstellen gibt es doch einige. Hier ist sicherlich nicht unbedingt das FBI von nöten. Aber eventuell ist das FBI doch besser aufgestellt, als die vielen Firmen die Professionell Festplatten wieder herstellen.
 
 Keylocker
 ---------
@@ -101,8 +101,8 @@ Er bindet eine Festplatte in das System ein (wohl seine USB-Festplatte) die mit 
 
 Überweisung
 -----------
-(1:46:31) Den direkten Zugriff ohne Passwort von einem fast öffentlichen Terminal sollte nicht wirklich funktionieren. 
+(01:46:31) Den direkten Zugriff ohne Passwort von einem fast öffentlichen Terminal sollte nicht wirklich funktionieren. 
 
 ssh
 ---
-(1:46:31) SSH ist eine stark verschlüsselte Verbindung zu einem anderen Computer. Woher er jetzt das Passwort hat, ist mir nicht ganz klar, aber gut. Die rote Einfärbung der Schrift macht sich einfach besser für einen Film.
+(01:46:31) SSH ist eine stark verschlüsselte Verbindung zu einem anderen Computer. Woher er jetzt das Passwort hat, ist mir nicht ganz klar, aber gut. Die rote Einfärbung der Schrift macht sich einfach besser für einen Film.
