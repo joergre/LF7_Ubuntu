@@ -106,3 +106,7 @@ Er bindet eine Festplatte in das System ein (wohl seine USB-Festplatte) die mit 
 ssh
 ---
 (01:46:31) SSH ist eine stark verschlüsselte Verbindung zu einem anderen Computer. Woher er jetzt das Passwort hat, ist mir nicht ganz klar, aber gut. Die rote Einfärbung der Schrift macht sich einfach besser für einen Film.
+
+Weitere Filme
+-------------
+ALGORITHM: The Hacker Movie: https://www.youtube.com/watch?v=6qpudAhYhpc
