@@ -20,6 +20,11 @@ Optisches Overlay Netzwerk
 --------------------------
 (12:53) ist ein Netzwerk, dass auf ein bestehendes Netzwerk aufsetzt und sich z.B. durch ein eigenes Routing oder andere logische Strukturen von dem darunter liegenden Netz abgrenzt. Beispiele sind z.B. VoIP (Telefongespräche über das Internet führen, wobei das logische Netz mit den Endgeräten eine von dem Internet unabhängige Logik  hat) oder das Tornetz, dass versucht Datenpakete anonym über das Internet zu transportieren. Weitere Informationen: https://de.wikipedia.org/wiki/Overlay-Netz
 
+ssh
+---
+(23:49) ssh -l  baut eine verschlüsselte Terminalsitzung zu einem anderen Computer auf. Die Option -l bedeutet, dass ein anderer Loginname verwendet wird als am System an dem gerade gearbeitet wird.
+Weiterführende Informationen: http://linuxcommand.org/man_pages/ssh1.htmlgi
+
 Deep Packet Inspection
 ----------------------
 (23:57) ist eine Art von Firewall die vor allem bei grossen Unternehmen und staatlichen Einrichtungen verwendet wird. Die gängig Firewall ist eine SPI (Stateful Packet Inspection), die in fast jedem heute verkauften Router zum Einsatz kommt. Diese Firewall untersucht den Kopf und den Fuss eines jeden Datenpakets und überprüft, anhand einer Tabelle über alle bestehenden Datenverbindungen, ob dieses Paket zu einer existierenden Datenverbindung gehört. Wenn das Paket zu einem bestehenden Socket (Kommunikationskanal) gehört wird das Paket durchgelassen. 
@@ -45,7 +50,7 @@ Weitere Informationen über den Aufbau: https://de.wikipedia.org/wiki/Autorun
 
 xxd
 ---
-Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/ (xxd.demo). Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
+Das Programm xxd erzeugt einen Hexdump einer Datei und wurde entwickelt um eine Datei per Mail zu übertragen. Das Programm kann auch ein Hexdump wieder in die ursprüngliche Datei zurückwandeln (Option -r). Ein Beispiel des Befehls gibt es hier: https://github.com/joergre/ttyrecords/ (xxd.demo) Abzuspielen mit: http://playterm.org/. Weitere Informationen: http://linuxcommand.org/man_pages/xxd1.html.
 
 DD-WRT
 ------
@@ -64,7 +69,7 @@ who und write
 Der Befehl who zeigt eine Vielzahl von Informationen über die momentan am System angemeldeten Benutzer an (https://wiki.ubuntuusers.de/who/).
 Mit write können Nachrichten zwischen den Benutzern eines Computers ausgetauscht werden (Beispielsitzung: https://youtu.be/obDYpIn-PYM
  und mehr zum Befehl: https://en.wikipedia.org/wiki/Write_(Unix))
-whois zeigt den DNS-Eintrag der entsprechenden IP-Adresse an. Beispiel: https://github.com/joergre/ttyrecords/ (whois.rec).
+whois zeigt den DNS-Eintrag der entsprechenden IP-Adresse an. Beispiel: https://github.com/joergre/ttyrecords/ (whois.rec) Abzuspielen mit; http://playterm.org/.
 
 Proxy-Server
 ------------
